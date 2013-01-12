@@ -1,0 +1,191 @@
+//
+// Prefix header for all source files of the 'Classic Gold Runner' target in the 'Classic Gold Runner' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+#endif
+
+#define TEMP_STRING_LENGTH				256
+#define UPDATE_LOOP_DELAY				0.03	// Delay between updates of the screen
+#define ANIMATION_LOOP_DELAY			0.03	// Delay between updates of the high score animation
+#define CURTAIN_LOOP_DELAY				0.2		// Delay between updates of the reveal curtain
+#define POST_DIE_SLEEP_DELAY			3		// Delay after player dies before anything else happens
+#define POST_WIN_BOARD_SLEEP_DELAY		2		// Delay after player wins board before next board starts
+#define ENTER_HS_XPOS					50		// X-position for Enter High Score View
+#define ENTER_HS_YPOS					50		// Y-position for Enter High Score View
+#define HS_VIEW_WIDTH					220		// Width of Enter High Score View
+#define HS_VIEW_HEIGHT					180		// Height of Enter High Score View
+#define HS_ENTRY_WIDTH					256		// Width of one entry in the High Score Table
+#define HS_ENTRY_HEIGHT					22		// Height of one entry in the High Score Table
+#define HS_TEXT_HEIGHT					20		// Height of the text displayed in the High Score Table
+#define HS_ENTRY_RANK_WIDTH				35		// Width of the rank component of the high score entry
+#define HS_ENTRY_SCORE_WIDTH			65		// Width of the score component of the high score entry
+#define HS_ENTRY_NAME_WIDTH				154		// Width of the name component of the high score entry
+#define SPOTLIGHT_START_WIDTH			9		// Starting width of the bounding rectangle for the reveal curtain's spotlight
+#define SPOTLIGHT_STEP_X				6		// Number of pixels on X axis to reveal in each increase of the curtain's size
+#define SPOTLIGHT_START_HEIGHT			6		// Starting height of the bounding rectangle for the reveal curtain's spotlight
+#define SPOTLIGHT_STEP_Y				4		// Number of pixels on Y axis to reveal in each increase of the curtain's size
+#define BUTTON_SIZE_SMALL				0		// Index of button size preference
+#define BUTTON_SIZE_MEDIUM				1		// Index of button size preference
+#define BUTTON_SIZE_LARGE				2		// Index of button size preference
+#define BUTTON_SIZE_HORIZONTAL			3		// Index of button size preference
+#define SCREEN_ORIENTATION_HORIZONTAL	0		// Index of screen orientation preference
+#define SCREEN_ORIENTATION_VERTICAL		1		// Index of screen orientation preference
+#define CONTROL_STYLE_PRECISE			0		// Index of control style preference
+#define CONTROL_STYLE_STICK				1		// Index of control style preference
+#define CONTROL_STYLE_FLICK				2		// Index of control style preference
+#define SCREEN_WIDTH					320		// Width of the complete iPhone screen
+#define SCREEN_HEIGHT					480		// Height of the entire iPhone screen
+#define STANDARD_GAMEVIEW_WIDTH			256		// Width of UIImageView for standard views
+#define STANDARD_GAMEVIEW_HEIGHT		171		// Height of UIImageView for standard views
+#define HORIZONTAL_GAMEVIEW_WIDTH		330		// Width of UIImageView for horizontal view
+#define HORIZONTAL_GAMEVIEW_HEIGHT		220		// Height of UIImageView for horizontal view
+#define HORIZONTAL_VIEW_X_MULT_FACTOR	1.289	// Factor to multiply x-axis positions and sizes by in horizontal mode
+#define HORIZONTAL_VIEW_Y_MULT_FACTOR	1.2865	// Factor to multiply y-axis positions and sizes by in horizontal mode
+
+// Values taken straight from the Gold Runner Engine
+#define BOARD_MAXLENGTH				32
+#define BOARD_MAXHEIGHT				19
+#define BOARD_MINLENGTH				32
+#define BOARD_MINHEIGHT				19
+#define MAX_OBJECTS					10
+#define RUNNER_WIDTH				10
+#define RUNNER_HEIGHT				9
+#define GUARD_WIDTH					10
+#define GUARD_HEIGHT				9
+#define GOLD_TILE_SKY				0xff
+#define GOLD_TILE_GRND				13
+#define SKY_TILE					0xff
+#define GROUND_TILE					0
+#define BRICK_TILE					1
+#define SKY_LADDER					0xff
+#define GROUND_LADDER				3
+#define STRT_DIG_SKY				0xff
+#define STRT_DIG_GRND				5
+#define ESCAPE_LADDER				14
+#define HOLE_DURATION				120
+#define DISINTEGRATION_RATE			2
+#define TIME_STUCK					60
+#define RUNNER_MOVE_X				2
+#define RUNNER_MOVE_Y				1
+#define GUARD_MOVE_X				1
+#define GUARD_MOVE_Y				1
+#define MAX_GOLD					20
+#define MAX_CHARACTERS				6
+#define MAX_SPRITES					15
+#define MAX_TILES					10
+#define MAX_MOVE_BLOCKS				50
+#define MAX_RAND					9
+#define MOD_RND_BY					(MAX_RAND + 1)
+#define TOUCH_OFFSET				1
+#define FALL_OFFSET					2
+#define OBJECT_TYPE_HOLE			1
+#define START_LIVES					3
+
+#define RUNNER_LEFT_START			1
+#define RUNNER_LEFT_END				2
+#define RUNNER_RIGHT_START			3
+#define RUNNER_RIGHT_END			4
+#define RUNNER_CLIMB_START			5
+#define RUNNER_CLIMB_END			6
+#define RUNNER_SHIMMY_START			5
+#define RUNNER_SHIMMY_END			6
+#define RUNNER_FALL_START			5
+#define RUNNER_FALL_END				6
+#define GUARD_LEFT_START			7
+#define GUARD_LEFT_END				8
+#define GUARD_RIGHT_START			9
+#define GUARD_RIGHT_END				10
+#define GUARD_CLIMB_START			11
+#define GUARD_CLIMB_END				12
+#define GUARD_SHIMMY_START			11
+#define GUARD_SHIMMY_END			12
+#define GUARD_FALL_START			11
+#define GUARD_FALL_END				12
+
+#define TILE_AIR					0x80
+#define TILE_SKY					0x40
+#define TILE_BRICK					0x20
+#define TILE_STONE					0x10
+#define TILE_LADDER					0x08
+#define TILE_ROPE					0x04
+#define TILE_TRAPDOOR				0x02
+#define TILE_DUG					0x01
+#define TILE_SOLID					(TILE_BRICK | TILE_STONE)
+#define TILE_NONSOLID				(TILE_AIR | TILE_ROPE | TILE_LADDER | TILE_TRAPDOOR)
+#define TILE_FALLTHROUGH			(TILE_AIR | TILE_ROPE | TILE_TRAPDOOR)
+#define TILE_DIG_UNDER				(TILE_AIR | TILE_ROPE | TILE_TRAPDOOR)
+#define TILE_NONSTICK				(TILE_AIR | TILE_TRAPDOOR)
+
+#define UP							16
+#define DOWN						14
+#define LEFT						2
+#define RIGHT						6
+#define STOP						13
+#define DIG							32
+
+#define SOUND_INTRO					0
+#define SOUND_PLGETGLD				1
+#define SOUND_GDGETGLD				2
+#define SOUND_DIG					3
+#define SOUND_DIE					4
+#define SOUND_WIN					5
+#define SOUND_SCORE					6
+
+struct object {
+	BOOL	active;		/* Boolean Value for Object in Use */
+	short	type;		/* Type of Object */
+	short	state;		/* State of Object */
+	short	sprite;		/* Currently Displayed Object Sprite */
+	short	xpos;		/* Current Pixel Position on Board - X Axis */
+	short	ypos;		/* Current Pixel Position on Board - Y Axis */
+	short	xblk;		/* Current Block Position on Board - X Axis */
+	short	yblk;		/* Current Block Position on Board - Y Axis */
+	short	time;		/* Time Object has Existed in Current State */
+	short	sky;		/* Boolean Value for Object in Sky */
+	short	full;		/* Boolean Value for Guard Stuck in Hole */
+};
+
+struct gfx_block {
+	short	xpos;		/* X Axis Pixel Position of Saved Region */
+	short	ypos;		/* Y Axis Pixel Position of Saved Region */
+	short	xlen;		/* X Axis Length */
+	short	ylen;		/* Y Axis Length */
+	unsigned char *block;	/* Pixel Data for Saved Block */
+};
+
+struct gold_position {
+	short	xblk;		/* Original Block Position on Board - X Axis */
+	short	yblk;		/* Original Block Position on Board - Y Axis */
+	short	tile;		/* Tile Sprite Number */
+};
+
+struct start_players {
+	short	xblk;		/* Original Block Position on Board - X Axis */
+	short	yblk;		/* Original Block Position on Board - Y Axis */
+	short	sprite;		/* Original Displayed Sprite */
+};
+
+struct escape_block {
+	short	xblk;		/* Block Position - X Axis */
+	short	yblk;		/* Block Position - Y Axis */
+	short	tile;		/* Original Tile Number */
+	short	chr;		/* Original Tile Characteristic */
+};
+
+struct place_block {
+	BOOL	active;		/* Boolean Value for Block Active */
+	short	mode;		/* Value for Tile/Sprite Character Set */
+	short	xblk;		/* X - Axis Block Position to Change */
+	short	yblk;		/* Y - Axis Block Position to Change */
+	short	tile;		/* Tile to Place */
+};
+
+struct high_score {
+	short	rank;		/* Ranking Among Highest Scores */
+	int		score;		/* Associated Score */
+	char	name[10];	/* Associated Name */
+	short	level;		/* Ending Level */
+};
