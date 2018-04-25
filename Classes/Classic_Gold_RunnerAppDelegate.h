@@ -10,6 +10,7 @@
 * Copyright:		(c) 2008 Infusions of Grandeur. All rights reserved.
 ********************************************************************************
 *	12/02/08		*	EGC	*	File creation date
+*	04/24/18		*	EGC *	Converted to ARC
 *******************************************************************************/
 
 #import <UIKit/UIKit.h>
@@ -113,29 +114,29 @@
 	AVAudioPlayer							*audioPlayer;				// Placeholder for an often alloc'd and dealloc'd audio player
 
 }
-@property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet Classic_Gold_RunnerViewController *gamePlayViewController;
-@property (nonatomic, retain) IBOutlet UIViewController *highScoreScreenController;
-@property (nonatomic, retain) IBOutlet UIViewController *preferencesScreenController;
-@property (nonatomic, retain) IBOutlet UIViewController *instructionsScreenController;
-@property (nonatomic, retain) IBOutlet UIViewController *startLevelScreenController;
-@property (nonatomic, retain) IBOutlet UIImageView *HSTitleView;
-@property (nonatomic, retain) IBOutlet UIView *HSList;
-@property (nonatomic, retain) IBOutlet UIImageView *gameScreenView;
-@property (nonatomic, retain) IBOutlet UIView *enterHSView;
-@property (nonatomic, retain) IBOutlet UITextField *highScoreName;
-@property (nonatomic, retain) IBOutlet UIView *curtainView;
-@property (nonatomic, retain) IBOutlet UISegmentedControl *buttonSizeControl;
-@property (nonatomic, retain) IBOutlet UISegmentedControl *screenOrientationControl;
-@property (nonatomic, retain) IBOutlet UISegmentedControl *controlStyleControl;
-@property (nonatomic, retain) IBOutlet UISlider *startLevelControl;
-@property (nonatomic, retain) IBOutlet UITextField *startLevelDisplay;
-@property (nonatomic, retain) Palette *customPalette;
-@property (nonatomic, retain) NSString *currentTileFilename;
-@property (nonatomic, retain) NSString *currentSpriteFilename;
-@property (nonatomic, retain) UIView *HSOverlayView;
-@property (nonatomic, retain) UIView *normalHS;
-@property (nonatomic, retain) UIView *invertedHS;
+@property (nonatomic, strong) IBOutlet UIWindow *window;
+@property (nonatomic, strong) IBOutlet Classic_Gold_RunnerViewController *gamePlayViewController;
+@property (nonatomic, strong) IBOutlet UIViewController *highScoreScreenController;
+@property (nonatomic, strong) IBOutlet UIViewController *preferencesScreenController;
+@property (nonatomic, strong) IBOutlet UIViewController *instructionsScreenController;
+@property (nonatomic, strong) IBOutlet UIViewController *startLevelScreenController;
+@property (nonatomic, strong) IBOutlet UIImageView *HSTitleView;
+@property (nonatomic, strong) IBOutlet UIView *HSList;
+@property (nonatomic, strong) IBOutlet UIImageView *gameScreenView;
+@property (nonatomic, strong) IBOutlet UIView *enterHSView;
+@property (nonatomic, strong) IBOutlet UITextField *highScoreName;
+@property (nonatomic, strong) IBOutlet UIView *curtainView;
+@property (nonatomic, strong) IBOutlet UISegmentedControl *buttonSizeControl;
+@property (nonatomic, strong) IBOutlet UISegmentedControl *screenOrientationControl;
+@property (nonatomic, strong) IBOutlet UISegmentedControl *controlStyleControl;
+@property (nonatomic, strong) IBOutlet UISlider *startLevelControl;
+@property (nonatomic, strong) IBOutlet UITextField *startLevelDisplay;
+@property (nonatomic, strong) Palette *customPalette;
+@property (nonatomic, strong) NSString *currentTileFilename;
+@property (nonatomic, strong) NSString *currentSpriteFilename;
+@property (nonatomic, strong) UIView *HSOverlayView;
+@property (nonatomic, strong) UIView *normalHS;
+@property (nonatomic, strong) UIView *invertedHS;
 - (IBAction)showPreferences:(id)sender;
 - (IBAction)showInstructions:(id)sender;
 - (IBAction)setStartLevel:(id)sender;

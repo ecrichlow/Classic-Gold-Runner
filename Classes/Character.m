@@ -10,6 +10,7 @@
 * Copyright:		(c) 2008 Infusions of Grandeur. All rights reserved.
 ********************************************************************************
 *	12/30/08		*	EGC	*	File creation date
+*	04/24/18		*	EGC *	Converted to ARC
 *******************************************************************************/
 
 #import "Character.h"
@@ -24,7 +25,7 @@ extern struct object objs[MAX_OBJECTS];
 
 - (id)init
 {
-	[super init];
+	if (!(self = [super init])) return nil;
 	xpos = 0;
 	ypos = 0;
 	dir = STOP;
@@ -32,10 +33,6 @@ extern struct object objs[MAX_OBJECTS];
 	return self;
 }
 
-- (void)dealloc
-{
-	[super dealloc];
-}
 
 #pragma mark - Business Logic
 

@@ -11,6 +11,7 @@
 ********************************************************************************
 *	12/09/08		*	EGC	*	File creation date
 *	04/23/18		*	EGC *	Updated to properly access embedded resources
+*	04/24/18		*	EGC *	Converted to ARC
 *******************************************************************************/
 
 #import "ImageSet.h"
@@ -25,23 +26,15 @@
 - (id)init
 {
 	
-	[super init];
+	if (!(self = [super init])) return nil;
 	filename = nil;
-	images = [[NSMutableArray arrayWithCapacity:MAX_NUM_IMAGES] retain];
-	imageDataObjects = [[NSMutableArray arrayWithCapacity:MAX_NUM_IMAGES] retain];
+	images = [NSMutableArray arrayWithCapacity:MAX_NUM_IMAGES];
+	imageDataObjects = [NSMutableArray arrayWithCapacity:MAX_NUM_IMAGES];
 	appDelegate = (Classic_Gold_RunnerAppDelegate *)[[UIApplication sharedApplication] delegate];
 	setType = 0;
 	return self;
 }
 
-- (void)dealloc
-{
-	
-	[filename release];
-	[images release];
-	[imageDataObjects release];
-	[super dealloc];
-}
 
 #pragma mark - Business Logic
 

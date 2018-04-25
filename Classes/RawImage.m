@@ -11,6 +11,7 @@
 ********************************************************************************
 *	12/10/08		*	EGC	*	File creation date
 *	04/23/18		*	EGC *	Updated to properly access embedded resources
+*	04/24/18		*	EGC *	Converted to ARC
 *******************************************************************************/
 
 #import "RawImage.h"
@@ -24,20 +25,13 @@
 
 - (id)init
 {
-	[super init];
+	if (!(self = [super init])) return nil;
 	rawImage = nil;
 	imageDataObject = nil;
 	appDelegate = (Classic_Gold_RunnerAppDelegate *)[[UIApplication sharedApplication] delegate];
 	return self;
 }
 
-- (void)dealloc
-{
-	
-	[rawImage release];
-	[imageDataObject release];
-	[super dealloc];
-}
 
 #pragma mark - Business Logic
 
@@ -73,7 +67,7 @@
 	imageDataObject = [[NSData alloc] initWithBytes:imageData length:(width * height * DEFAULT_BYTES_PER_PIXEL)];
 	free (imageData);
 	dataProviderRef = CGDataProviderCreateWithCFData ((CFDataRef)imageDataObject);
-	rawImage = [[UIImage imageWithCGImage:CGImageCreate(width, height, DEFAULT_BITS_PER_COMPONENT, DEFAULT_BITS_PER_PIXEL, width * DEFAULT_BYTES_PER_PIXEL, colorspace, kCGImageAlphaLast | kCGBitmapByteOrder32Big, dataProviderRef, NULL, NO, kCGRenderingIntentDefault)] retain];
+	rawImage = [UIImage imageWithCGImage:CGImageCreate(width, height, DEFAULT_BITS_PER_COMPONENT, DEFAULT_BITS_PER_PIXEL, width * DEFAULT_BYTES_PER_PIXEL, colorspace, kCGImageAlphaLast | kCGBitmapByteOrder32Big, dataProviderRef, NULL, NO, kCGRenderingIntentDefault)];
 	CGDataProviderRelease (dataProviderRef);
 	CGColorSpaceRelease (colorspace);
 	return (YES);

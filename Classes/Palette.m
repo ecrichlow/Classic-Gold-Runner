@@ -11,6 +11,7 @@
 ********************************************************************************
 *	12/09/08		*	EGC	*	File creation date
 *	04/23/18		*	EGC *	Updated to properly access embedded resources
+*	04/24/18		*	EGC *	Converted to ARC
 *******************************************************************************/
 
 #import "Palette.h"
@@ -21,7 +22,7 @@
 
 - (id)init
 {
-	[super init];
+	if (!(self = [super init])) return nil;
 	memset (redComponents, 0, DEFAULT_PALETTE_SIZE);
 	memset (greenComponents, 0, DEFAULT_PALETTE_SIZE);
 	memset (blueComponents, 0, DEFAULT_PALETTE_SIZE);
@@ -29,10 +30,6 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	[super dealloc];
-}
 
 #pragma mark - Business Logic
 

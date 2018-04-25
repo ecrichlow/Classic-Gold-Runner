@@ -10,6 +10,7 @@
 * Copyright:		(c) 2008 Infusions of Grandeur. All rights reserved.
 ********************************************************************************
 *	01/29/09		*	EGC	*	File creation date
+*	04/24/18		*	EGC *	Converted to ARC
 *******************************************************************************/
 
 #import "FlickView.h"
@@ -31,10 +32,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 #pragma mark - Business Logic
 

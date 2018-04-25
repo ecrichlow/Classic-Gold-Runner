@@ -10,6 +10,7 @@
 * Copyright:		(c) 2008 Infusions of Grandeur. All rights reserved.
 ********************************************************************************
 *	12/10/08		*	EGC	*	File creation date
+*	04/24/18		*	EGC *	Converted to ARC
 *******************************************************************************/
 
 #import <Foundation/Foundation.h>
@@ -28,6 +29,6 @@
 	NSData							*imageDataObject;	// Holds the raw image data used for the UIImage
 	Classic_Gold_RunnerAppDelegate	*appDelegate;		// Used to retrieve palette data
 }
-@property (nonatomic, retain) UIImage *rawImage;
+@property (nonatomic, strong) UIImage *rawImage;
 - (BOOL)loadRawImage:(NSString *)filename withWidth:(int)width height:(int)height;
 @end

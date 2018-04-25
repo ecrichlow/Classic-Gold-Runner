@@ -10,6 +10,7 @@
 * Copyright:		(c) 2008 Infusions of Grandeur. All rights reserved.
 ********************************************************************************
 *	12/09/08		*	EGC	*	File creation date
+*	04/24/18		*	EGC *	Converted to ARC
 *******************************************************************************/
 
 #import <Foundation/Foundation.h>
@@ -31,9 +32,9 @@
 	int							tileWidth;				// Number of pixels wide the board tiles are
 	int							tileHeight;				// Number of pixels high the board tiles are
 }
-@property (nonatomic, retain) NSString *tileFilename;
-@property (nonatomic, retain) NSString *spriteFilename;
-@property (nonatomic, retain) NSMutableArray *tileRows;
+@property (nonatomic, strong) NSString *tileFilename;
+@property (nonatomic, strong) NSString *spriteFilename;
+@property (nonatomic, strong) NSMutableArray *tileRows;
 - (BOOL)loadGameboard:(int)levelNumber;
 - (unsigned char)tileForRow:(int)row column:(int)column;
 - (unsigned char)attachmentForRow:(int)row column:(int)column;

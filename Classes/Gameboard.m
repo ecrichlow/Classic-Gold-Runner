@@ -11,6 +11,7 @@
 ********************************************************************************
 *	12/09/08		*	EGC	*	File creation date
 *	04/23/18		*	EGC *	Updated to properly access embedded resources
+*	04/24/18		*	EGC *	Converted to ARC
 *******************************************************************************/
 
 #import "Gameboard.h"
@@ -26,7 +27,7 @@
 - (id)init
 {
 	
-	[super init];
+	if (!(self = [super init])) return nil;
 	tileRows = nil;
 	attachmentRows = nil;
 	characteristicRows = nil;
@@ -39,16 +40,6 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	
-	[tileRows release];
-	[attachmentRows release];
-	[characteristicRows release];
-	[tileFilename release];
-	[spriteFilename release];
-	[super dealloc];
-}
 
 #pragma mark - Business Logic
 
@@ -107,9 +98,9 @@
 			// Header done - now we get to the raw board data
 		for (heightIndex=0;heightIndex<boardHeight;heightIndex++)
 			{
-			NSMutableArray *characteristicColumns = [[[NSMutableArray alloc] initWithCapacity:boardWidth] autorelease];
-			NSMutableArray *attachmentColumns = [[[NSMutableArray alloc] initWithCapacity:boardWidth] autorelease];
-			NSMutableArray *tileColumns = [[[NSMutableArray alloc] initWithCapacity:boardWidth] autorelease];
+			NSMutableArray *characteristicColumns = [[NSMutableArray alloc] initWithCapacity:boardWidth];
+			NSMutableArray *attachmentColumns = [[NSMutableArray alloc] initWithCapacity:boardWidth];
+			NSMutableArray *tileColumns = [[NSMutableArray alloc] initWithCapacity:boardWidth];
 			for (widthIndex=0;widthIndex<boardWidth;widthIndex++)
 				{
 				intValue = *dataMarker++;

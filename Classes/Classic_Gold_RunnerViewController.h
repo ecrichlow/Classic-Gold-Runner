@@ -10,6 +10,7 @@
 * Copyright:		(c) 2008 Infusions of Grandeur. All rights reserved.
 ********************************************************************************
 *	12/02/08		*	EGC	*	File creation date
+*	04/24/18		*	EGC *	Converted to ARC
 *******************************************************************************/
 
 #import <UIKit/UIKit.h>
@@ -58,37 +59,37 @@
 	IBOutlet UIImageView							*curtainHorizontal;		// Horizontal reveal curtain
 
 }
-@property (nonatomic, retain) IBOutlet UIImageView *gameView;
-@property (nonatomic, retain) IBOutlet UIImageView *gameViewLarge;
-@property (nonatomic, retain) IBOutlet UIImageView *gameViewMedium;
-@property (nonatomic, retain) IBOutlet UIImageView *gameViewSmall;
-@property (nonatomic, retain) IBOutlet UILabel *scoreText;
-@property (nonatomic, retain) IBOutlet UILabel *scoreTextLarge;
-@property (nonatomic, retain) IBOutlet UILabel *scoreTextMedium;
-@property (nonatomic, retain) IBOutlet UILabel *scoreTextSmall;
-@property (nonatomic, retain) IBOutlet UILabel *livesText;
-@property (nonatomic, retain) IBOutlet UILabel *livesTextLarge;
-@property (nonatomic, retain) IBOutlet UILabel *livesTextMedium;
-@property (nonatomic, retain) IBOutlet UILabel *livesTextSmall;
-@property (nonatomic, retain) IBOutlet UILabel *levelText;
-@property (nonatomic, retain) IBOutlet UILabel *levelTextLarge;
-@property (nonatomic, retain) IBOutlet UILabel *levelTextMedium;
-@property (nonatomic, retain) IBOutlet UILabel *levelTextSmall;
-@property (nonatomic, retain) IBOutlet UIButton *quitButton;
-@property (nonatomic, retain) IBOutlet UIButton *quitButtonLarge;
-@property (nonatomic, retain) IBOutlet UIButton *quitButtonMedium;
-@property (nonatomic, retain) IBOutlet UIButton *quitButtonSmall;
-@property (nonatomic, retain) IBOutlet UIButton *pauseButton;
-@property (nonatomic, retain) IBOutlet UIButton *pauseButtonLarge;
-@property (nonatomic, retain) IBOutlet UIButton *pauseButtonMedium;
-@property (nonatomic, retain) IBOutlet UIButton *pauseButtonSmall;
-@property (nonatomic, retain) IBOutlet UIView *largeView;
-@property (nonatomic, retain) IBOutlet UIView *mediumView;
-@property (nonatomic, retain) IBOutlet UIView *smallView;
-@property (nonatomic, retain) IBOutlet UIImageView *curtain;
-@property (nonatomic, retain) IBOutlet UIImageView *curtainLarge;
-@property (nonatomic, retain) IBOutlet UIImageView *curtainMedium;
-@property (nonatomic, retain) IBOutlet UIImageView *curtainSmall;
+@property (nonatomic, strong) IBOutlet UIImageView *gameView;
+@property (nonatomic, strong) IBOutlet UIImageView *gameViewLarge;
+@property (nonatomic, strong) IBOutlet UIImageView *gameViewMedium;
+@property (nonatomic, strong) IBOutlet UIImageView *gameViewSmall;
+@property (nonatomic, strong) IBOutlet UILabel *scoreText;
+@property (nonatomic, strong) IBOutlet UILabel *scoreTextLarge;
+@property (nonatomic, strong) IBOutlet UILabel *scoreTextMedium;
+@property (nonatomic, strong) IBOutlet UILabel *scoreTextSmall;
+@property (nonatomic, strong) IBOutlet UILabel *livesText;
+@property (nonatomic, strong) IBOutlet UILabel *livesTextLarge;
+@property (nonatomic, strong) IBOutlet UILabel *livesTextMedium;
+@property (nonatomic, strong) IBOutlet UILabel *livesTextSmall;
+@property (nonatomic, strong) IBOutlet UILabel *levelText;
+@property (nonatomic, strong) IBOutlet UILabel *levelTextLarge;
+@property (nonatomic, strong) IBOutlet UILabel *levelTextMedium;
+@property (nonatomic, strong) IBOutlet UILabel *levelTextSmall;
+@property (nonatomic, strong) IBOutlet UIButton *quitButton;
+@property (nonatomic, strong) IBOutlet UIButton *quitButtonLarge;
+@property (nonatomic, strong) IBOutlet UIButton *quitButtonMedium;
+@property (nonatomic, strong) IBOutlet UIButton *quitButtonSmall;
+@property (nonatomic, strong) IBOutlet UIButton *pauseButton;
+@property (nonatomic, strong) IBOutlet UIButton *pauseButtonLarge;
+@property (nonatomic, strong) IBOutlet UIButton *pauseButtonMedium;
+@property (nonatomic, strong) IBOutlet UIButton *pauseButtonSmall;
+@property (nonatomic, strong) IBOutlet UIView *largeView;
+@property (nonatomic, strong) IBOutlet UIView *mediumView;
+@property (nonatomic, strong) IBOutlet UIView *smallView;
+@property (nonatomic, strong) IBOutlet UIImageView *curtain;
+@property (nonatomic, strong) IBOutlet UIImageView *curtainLarge;
+@property (nonatomic, strong) IBOutlet UIImageView *curtainMedium;
+@property (nonatomic, strong) IBOutlet UIImageView *curtainSmall;
 - (IBAction)pauseGame:(id)sender;
 - (IBAction)quitGame:(id)sender;
 - (IBAction)leftDig:(id)sender;

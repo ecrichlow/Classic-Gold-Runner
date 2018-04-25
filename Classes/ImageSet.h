@@ -10,6 +10,7 @@
 * Copyright:		(c) 2008 Infusions of Grandeur. All rights reserved.
 ********************************************************************************
 *	12/09/08		*	EGC	*	File creation date
+*	04/24/18		*	EGC *	Converted to ARC
 *******************************************************************************/
 
 #import <Foundation/Foundation.h>
@@ -34,7 +35,7 @@
 	Classic_Gold_RunnerAppDelegate	*appDelegate;		// Used to retrieve palette data
 	int								setType;			// 0 for tiles; 1 for sprites - needed to adjust transparency on sprites
 }
-@property (nonatomic, retain) NSString *filename;
+@property (nonatomic, strong) NSString *filename;
 - (BOOL)loadImages:(NSString *)fileName mode:(int)mode;
 - (const void *)convertRawToRGBA:(unsigned char *)rawData forWidth:(int)width height:(int)height;
 - (UIImage *)imageForSlot:(int)slotNumber;

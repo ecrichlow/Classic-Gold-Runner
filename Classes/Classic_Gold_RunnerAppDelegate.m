@@ -11,6 +11,7 @@
 ********************************************************************************
 *	12/02/08		*	EGC	*	File creation date
 *	04/23/18		*	EGC *	Updated to properly access embedded resources
+*	04/24/18		*	EGC *	Converted to ARC
 *******************************************************************************/
 
 #import "Classic_Gold_RunnerAppDelegate.h"
@@ -86,7 +87,7 @@ struct object objs[MAX_OBJECTS];
 
 - (id)init
 {
-	[super init];
+	if (!(self = [super init])) return nil;
 	customPalette = nil;
 	titleImage = nil;
 	currentLevel = 1;
@@ -97,7 +98,7 @@ struct object objs[MAX_OBJECTS];
 	frame = nil;
 	controller_dir = STOP;
 	runner = nil;
-	guards = [[NSMutableArray arrayWithCapacity:MAX_CHARACTERS] retain];
+	guards = [NSMutableArray arrayWithCapacity:MAX_CHARACTERS];
 	brd_x_exit = 0;
 	brd_y_exit = 0;
 	level_gold = 0;
@@ -111,7 +112,7 @@ struct object objs[MAX_OBJECTS];
 	max_block_move = 0;
 	runner_dig = NO;
 	updateTimer = nil;
-	spriteViews = [[NSMutableArray arrayWithCapacity:MAX_CHARACTERS] retain];
+	spriteViews = [NSMutableArray arrayWithCapacity:MAX_CHARACTERS];
 	gamePlayViewController = nil;
 	gameScreenView = nil;
 	runner_lives = START_LIVES;
@@ -120,9 +121,9 @@ struct object objs[MAX_OBJECTS];
 	rightButtonPressed = NO;
 	upButtonPressed = NO;
 	downButtonPressed = NO;
-	highScores = [[NSMutableArray arrayWithCapacity:10] retain];
+	highScores = [NSMutableArray arrayWithCapacity:10];
 	mostRecentHighScore = 0;
-	highScoreEntries = [[NSMutableArray arrayWithCapacity:10] retain];
+	highScoreEntries = [NSMutableArray arrayWithCapacity:10];
 	animationTimer = nil;
 	animationFrame = 0;
 	HSOverlayView = nil;
@@ -145,28 +146,6 @@ struct object objs[MAX_OBJECTS];
 	return self;
 }
 
-- (void)dealloc
-{
-    [gamePlayViewController release];
-    [window release];
-    [highScoreScreenController release];
-    [preferencesScreenController release];
-    [startLevelScreenController release];
-    [HSTitleView release];
-    [HSList release];
-    [customPalette release];
-    [titleImage release];
-    [currentBoard release];
-    [currentTileset release];
-    [currentSpriteset release];
-    [staticBackground release];
-	[guards release];
-	[highScores release];
-	[HSOverlayView release];
-	[background release];
-	[spotlight release];
-    [super dealloc];
-}
 
 #pragma mark - Business Logic
 
@@ -193,7 +172,7 @@ struct object objs[MAX_OBJECTS];
 	else
 		{
 		fileData = [NSData dataWithContentsOfFile:[NSHomeDirectory() stringByAppendingString:@"/Documents/preferences.plist"]];
-		prefs = [[NSPropertyListSerialization propertyListFromData:fileData mutabilityOption:NSPropertyListMutableContainers format:&PListFormat errorDescription:&errorString] retain];
+		prefs = [NSPropertyListSerialization propertyListFromData:fileData mutabilityOption:NSPropertyListMutableContainers format:&PListFormat errorDescription:&errorString];
 		if ([NSPropertyListSerialization propertyList:prefs isValidForFormat:NSPropertyListXMLFormat_v1_0] == NO)	// The preferences file we read in wasn't valid. Redo the whole thing
 			{
 			fileDeleted = [fileManager removeItemAtPath:[NSHomeDirectory() stringByAppendingString:@"/Documents/preferences.plist"] error:nil];
@@ -261,9 +240,8 @@ struct object objs[MAX_OBJECTS];
 		}
 	else
 		{
-		[highScores release];
 		fileData = [NSData dataWithContentsOfFile:[NSHomeDirectory() stringByAppendingString:@"/Documents/highScores.plist"]];
-		highScores = [[NSPropertyListSerialization propertyListFromData:fileData mutabilityOption:NSPropertyListMutableContainers format:&PListFormat errorDescription:&errorString] retain];
+		highScores = [NSPropertyListSerialization propertyListFromData:fileData mutabilityOption:NSPropertyListMutableContainers format:&PListFormat errorDescription:&errorString];
 		if ([NSPropertyListSerialization propertyList:highScores isValidForFormat:NSPropertyListXMLFormat_v1_0] == NO)	// The high scores file we read in wasn't valid. Redo the whole thing
 			{
 			fileDeleted = [fileManager removeItemAtPath:[NSHomeDirectory() stringByAppendingString:@"/Documents/highScores.plist"] error:nil];
@@ -311,7 +289,6 @@ struct object objs[MAX_OBJECTS];
 	if (updateTimer)			// Pausing
 		{
 		[updateTimer invalidate];
-		[updateTimer release];
 		updateTimer = nil;
 
 		curtainView.hidden = NO;
@@ -331,7 +308,7 @@ struct object objs[MAX_OBJECTS];
 		curtainView.hidden = YES;
 		curtainView.alpha = 1.0;
 		// Now start the level running again
-		updateTimer = [[NSTimer scheduledTimerWithTimeInterval:UPDATE_LOOP_DELAY target:self selector:@selector(updateFrame:) userInfo:nil repeats:YES] retain];
+		updateTimer = [NSTimer scheduledTimerWithTimeInterval:UPDATE_LOOP_DELAY target:self selector:@selector(updateFrame:) userInfo:nil repeats:YES];
 		}
 }
 
@@ -346,19 +323,16 @@ struct object objs[MAX_OBJECTS];
 		}
 
 	[updateTimer invalidate];
-	[updateTimer release];
 	updateTimer = nil;
 	level = defaultStartLevel;
 	runner_lives = START_LIVES;
 	last_score = 1;
-	[runner release];
 	[guards removeAllObjects];
 	for (UIImageView *drawView in spriteViews)
 		{
 		[drawView removeFromSuperview];
 		}
 	[spriteViews removeAllObjects];
-	[currentBoard release];
 	currentBoard = nil;
 	if (flickView)
 		{
@@ -370,7 +344,6 @@ struct object objs[MAX_OBJECTS];
 			}
 		// Now remove FlickView from screen before pushing screen off window
 		[flickView removeFromSuperview];
-		[flickView release];
 		flickView = nil;
 		}
 	[gamePlayViewController.view removeFromSuperview];
@@ -393,10 +366,10 @@ struct object objs[MAX_OBJECTS];
 		CGRect rankFrame = CGRectMake(0.0, (HS_ENTRY_HEIGHT - HS_TEXT_HEIGHT) / 2, HS_ENTRY_RANK_WIDTH, HS_TEXT_HEIGHT);
 		CGRect scoreFrame = CGRectMake(HS_ENTRY_RANK_WIDTH, (HS_ENTRY_HEIGHT - HS_TEXT_HEIGHT) / 2, HS_ENTRY_SCORE_WIDTH, HS_TEXT_HEIGHT);
 		CGRect nameFrame = CGRectMake(HS_ENTRY_RANK_WIDTH + HS_ENTRY_SCORE_WIDTH, (HS_ENTRY_HEIGHT - HS_TEXT_HEIGHT) / 2, HS_ENTRY_NAME_WIDTH, HS_TEXT_HEIGHT);
-		UIView *cellContent = [[[UIView alloc] initWithFrame:cellFrame] autorelease];
-		UILabel *rankComponent = [[[UILabel alloc] initWithFrame:rankFrame] autorelease];
-		UILabel *scoreComponent = [[[UILabel alloc] initWithFrame:scoreFrame] autorelease];
-		UILabel *nameComponent = [[[UILabel alloc] initWithFrame:nameFrame] autorelease];
+		UIView *cellContent = [[UIView alloc] initWithFrame:cellFrame];
+		UILabel *rankComponent = [[UILabel alloc] initWithFrame:rankFrame];
+		UILabel *scoreComponent = [[UILabel alloc] initWithFrame:scoreFrame];
+		UILabel *nameComponent = [[UILabel alloc] initWithFrame:nameFrame];
 		rankComponent.text = [[NSNumber numberWithInt:(index + 1)] stringValue];
 		rankComponent.backgroundColor = [UIColor clearColor];
 		rankComponent.textAlignment = UITextAlignmentLeft;
@@ -442,11 +415,11 @@ struct object objs[MAX_OBJECTS];
 
 	HSOverlayView.frame = CGRectMake(0.0, (HS_ENTRY_HEIGHT * mostRecentHighScore), HS_ENTRY_WIDTH, HS_ENTRY_HEIGHT);
 
-	normalHS = [[[UIView alloc] initWithFrame:cellFrame] autorelease];
+	normalHS = [[UIView alloc] initWithFrame:cellFrame];
 	normalHS.clipsToBounds = YES;
-	rankComponent = [[[UILabel alloc] initWithFrame:rankFrame] autorelease];
-	scoreComponent = [[[UILabel alloc] initWithFrame:scoreFrame] autorelease];
-	nameComponent = [[[UILabel alloc] initWithFrame:nameFrame] autorelease];
+	rankComponent = [[UILabel alloc] initWithFrame:rankFrame];
+	scoreComponent = [[UILabel alloc] initWithFrame:scoreFrame];
+	nameComponent = [[UILabel alloc] initWithFrame:nameFrame];
 	rankComponent.text = [[NSNumber numberWithInt:(mostRecentHighScore + 1)] stringValue];
 	rankComponent.textAlignment = UITextAlignmentLeft;
 	rankComponent.backgroundColor = [UIColor blackColor];
@@ -463,11 +436,11 @@ struct object objs[MAX_OBJECTS];
 	nameComponent.textColor = [UIColor whiteColor];
 	[normalHS addSubview:nameComponent];
 
-	invertedHS = [[[UIView alloc] initWithFrame:cellFrame] autorelease];
+	invertedHS = [[UIView alloc] initWithFrame:cellFrame];
 	invertedHS.clipsToBounds = YES;
-	rankComponent = [[[UILabel alloc] initWithFrame:rankFrame] autorelease];
-	scoreComponent = [[[UILabel alloc] initWithFrame:scoreFrame] autorelease];
-	nameComponent = [[[UILabel alloc] initWithFrame:nameFrame] autorelease];
+	rankComponent = [[UILabel alloc] initWithFrame:rankFrame];
+	scoreComponent = [[UILabel alloc] initWithFrame:scoreFrame];
+	nameComponent = [[UILabel alloc] initWithFrame:nameFrame];
 	rankComponent.text = [[NSNumber numberWithInt:(mostRecentHighScore + 1)] stringValue];
 	rankComponent.textAlignment = UITextAlignmentLeft;
 	rankComponent.backgroundColor = [UIColor whiteColor];
@@ -536,13 +509,12 @@ struct object objs[MAX_OBJECTS];
 
 	animationFrame = 1;
 	[HSOverlayView bringSubviewToFront:normalHS];
-	animationTimer = [[NSTimer scheduledTimerWithTimeInterval:ANIMATION_LOOP_DELAY target:self selector:@selector(updateHSAnimation:) userInfo:nil repeats:YES] retain];
+	animationTimer = [NSTimer scheduledTimerWithTimeInterval:ANIMATION_LOOP_DELAY target:self selector:@selector(updateHSAnimation:) userInfo:nil repeats:YES];
 }
 
 - (void)stopHSTimer;
 {
 	[animationTimer invalidate];
-	[animationTimer release];
 	animationTimer = nil;
 }
 
@@ -627,7 +599,7 @@ struct object objs[MAX_OBJECTS];
 		}
 	self.gameScreenView = gamePlayViewController.gameView;
 	gameScreenView.hidden = YES;					// Done to keep the level from flashing before the curtain reveal
-	gameScreenView.image = [frame autorelease];		// Always autorelease frame when it gets assigned to the imageview
+	gameScreenView.image = frame;		// Always autorelease frame when it gets assigned to the imageview
 	curtainView = gamePlayViewController.curtain;
 	[self loadLevelStats];
 	// Add the subview that draw the characters
@@ -670,10 +642,10 @@ struct object objs[MAX_OBJECTS];
 		CGRect rankFrame = CGRectMake(0.0, (HS_ENTRY_HEIGHT - HS_TEXT_HEIGHT) / 2, HS_ENTRY_RANK_WIDTH, HS_TEXT_HEIGHT);
 		CGRect scoreFrame = CGRectMake(HS_ENTRY_RANK_WIDTH, (HS_ENTRY_HEIGHT - HS_TEXT_HEIGHT) / 2, HS_ENTRY_SCORE_WIDTH, HS_TEXT_HEIGHT);
 		CGRect nameFrame = CGRectMake(HS_ENTRY_RANK_WIDTH + HS_ENTRY_SCORE_WIDTH, (HS_ENTRY_HEIGHT - HS_TEXT_HEIGHT) / 2, HS_ENTRY_NAME_WIDTH, HS_TEXT_HEIGHT);
-		UIView *cellContent = [[[UIView alloc] initWithFrame:cellFrame] autorelease];
-		UILabel *rankComponent = [[[UILabel alloc] initWithFrame:rankFrame] autorelease];
-		UILabel *scoreComponent = [[[UILabel alloc] initWithFrame:scoreFrame] autorelease];
-		UILabel *nameComponent = [[[UILabel alloc] initWithFrame:nameFrame] autorelease];
+		UIView *cellContent = [[UIView alloc] initWithFrame:cellFrame];
+		UILabel *rankComponent = [[UILabel alloc] initWithFrame:rankFrame];
+		UILabel *scoreComponent = [[UILabel alloc] initWithFrame:scoreFrame];
+		UILabel *nameComponent = [[UILabel alloc] initWithFrame:nameFrame];
 		rankComponent.text = [[NSNumber numberWithInt:(index + 1)] stringValue];
 		rankComponent.backgroundColor = [UIColor clearColor];
 		rankComponent.textAlignment = UITextAlignmentLeft;
@@ -777,7 +749,7 @@ struct object objs[MAX_OBJECTS];
 		{
 		curtainPull = 0;
 		curtainView.hidden = NO;
-		curtainTimer = [[NSTimer scheduledTimerWithTimeInterval:CURTAIN_LOOP_DELAY target:self selector:@selector(revealCurtain:) userInfo:nil repeats:YES] retain];
+		curtainTimer = [NSTimer scheduledTimerWithTimeInterval:CURTAIN_LOOP_DELAY target:self selector:@selector(revealCurtain:) userInfo:nil repeats:YES];
 		}
 	else						// When in horizontal mode we skip the curtain reveal because I didn't feel like fixing the reveal code to deal with the bigger view
 		{
@@ -789,7 +761,7 @@ struct object objs[MAX_OBJECTS];
 		[self setController_dir:STOP];
 		[self setRunner_dig:FALSE];
 		// Now start the level running
-		updateTimer = [[NSTimer scheduledTimerWithTimeInterval:UPDATE_LOOP_DELAY target:self selector:@selector(updateFrame:) userInfo:nil repeats:YES] retain];
+		updateTimer = [NSTimer scheduledTimerWithTimeInterval:UPDATE_LOOP_DELAY target:self selector:@selector(updateFrame:) userInfo:nil repeats:YES];
 		}
 
 }
@@ -822,7 +794,7 @@ struct object objs[MAX_OBJECTS];
 		drawoffsetx = abs(sizex);
 		startx = 0;
 		sizex = HS_VIEW_WIDTH;
-		drawx = HS_VIEW_WIDTH / 2; 
+		drawx = HS_VIEW_WIDTH / 2;
 		}
 	if (starty >= 0)
 		{
@@ -861,7 +833,6 @@ struct object objs[MAX_OBJECTS];
 {
 
 	[curtainTimer invalidate];
-	[curtainTimer release];
 	curtainTimer = nil;
 
 	curtainView.hidden = YES;
@@ -877,7 +848,6 @@ struct object objs[MAX_OBJECTS];
 			}
 		// Now remove FlickView from screen before setting up a new one
 		[flickView removeFromSuperview];
-		[flickView release];
 		flickView = nil;
 		}
 	else
@@ -891,7 +861,7 @@ struct object objs[MAX_OBJECTS];
 	[self setRunner_dig:FALSE];
 
 	// Now start the level running
-	updateTimer = [[NSTimer scheduledTimerWithTimeInterval:UPDATE_LOOP_DELAY target:self selector:@selector(updateFrame:) userInfo:nil repeats:YES] retain];
+	updateTimer = [NSTimer scheduledTimerWithTimeInterval:UPDATE_LOOP_DELAY target:self selector:@selector(updateFrame:) userInfo:nil repeats:YES];
 
 }
 
@@ -1011,14 +981,12 @@ struct object objs[MAX_OBJECTS];
 			level = defaultStartLevel;
 			runner_lives = START_LIVES;
 			last_score = 1;
-			[runner release];
 			[guards removeAllObjects];
 			for (UIImageView *drawView in spriteViews)
 				{
 				[drawView removeFromSuperview];
 				}
 			[spriteViews removeAllObjects];
-			[currentBoard release];
 			currentBoard = nil;
 			if (flickView)
 				{
@@ -1030,7 +998,6 @@ struct object objs[MAX_OBJECTS];
 					}
 				// Now remove FlickView from screen before pushing screen off window
 				[flickView removeFromSuperview];
-				[flickView release];
 				flickView = nil;
 				}
 			[gamePlayViewController.view removeFromSuperview];
@@ -1049,7 +1016,7 @@ struct object objs[MAX_OBJECTS];
 			{
 			[self Start_Level];
 			// Now start the level running
-			updateTimer = [[NSTimer scheduledTimerWithTimeInterval:UPDATE_LOOP_DELAY target:self selector:@selector(updateFrame:) userInfo:nil repeats:YES] retain];
+			updateTimer = [NSTimer scheduledTimerWithTimeInterval:UPDATE_LOOP_DELAY target:self selector:@selector(updateFrame:) userInfo:nil repeats:YES];
 			}
 		}
 	else
@@ -1057,7 +1024,6 @@ struct object objs[MAX_OBJECTS];
 		if (game_mode == 1)			// Board was just won, load next board
 			{
 			// Clear out everything from the last level
-			[runner release];
 			[guards removeAllObjects];
 			for (UIImageView *drawView in spriteViews)
 				{
@@ -1065,13 +1031,12 @@ struct object objs[MAX_OBJECTS];
 				}
 			[spriteViews removeAllObjects];
 			// Set up all necessary info to start the next level
-			[currentBoard release];
 			currentBoard = [[Gameboard alloc] init];
 			if ([currentBoard loadGameboard:level] == NO)
 				{
 				}
 			[self loadBackgroundImage];
-			gameScreenView.image = [frame autorelease];		// Always autorelease frame when it gets assigned to the imageview
+			gameScreenView.image = frame;		// Always autorelease frame when it gets assigned to the imageview
 			[self loadLevelStats];
 			// Add the subview that draw the characters
 			for (UIImageView *drawView in spriteViews)
@@ -1116,10 +1081,9 @@ struct object objs[MAX_OBJECTS];
 			}
 		// Retain this object when you create it, and autorelease it when you assign it to an imageview
 		frame = UIGraphicsGetImageFromCurrentImageContext();
-		[frame retain];
 		UIGraphicsEndImageContext();
 		max_block_move = 0;
-		gameScreenView.image = [frame autorelease];		// Always autorelease frame when it gets assigned to the imageview
+		gameScreenView.image = frame;		// Always autorelease frame when it gets assigned to the imageview
 		}
 	[self Draw_Characters];
 	last_score = score;
@@ -1175,8 +1139,6 @@ struct object objs[MAX_OBJECTS];
 - (void)playSound:(int)soundNum
 {
 
-	if (audioPlayer)
-		[audioPlayer release];
 
 	switch (soundNum)
 		{
@@ -1247,7 +1209,6 @@ struct object objs[MAX_OBJECTS];
 		}
 	// Retain this object when you create it, and autorelease it when you assign it to an imageview
 	frame = UIGraphicsGetImageFromCurrentImageContext();
-	[frame retain];
 	UIGraphicsEndImageContext();
 
 }
@@ -1295,12 +1256,12 @@ struct object objs[MAX_OBJECTS];
 	runner = [[Character alloc] init];
 	[runner setAsRunner];
 	// Set up a UIImageView for the sprite for this character
-	UIImageView *spriteView = [[[UIImageView alloc] init] autorelease];
+	UIImageView *spriteView = [[UIImageView alloc] init];
 	[spriteViews addObject:spriteView];
 	for (int x=0;x<num_guards;x++)
 		{
-		Character *newCharacter = [[[Character alloc] init] autorelease];
-		UIImageView *spriteView = [[[UIImageView alloc] init] autorelease];
+		Character *newCharacter = [[Character alloc] init];
+		UIImageView *spriteView = [[UIImageView alloc] init];
 		[guards addObject:newCharacter];
 		// Set up a UIImageView for the sprite for this character
 		[spriteViews addObject:spriteView];
@@ -1449,12 +1410,12 @@ struct object objs[MAX_OBJECTS];
                                  [guard setDir:UP];
                                  [guard setFall:0];
                                  }
-                              } 
+                              }
                            }
 					   if (objs[x].xblk == [runner xblk] && (objs[x].yblk == [runner yblk] || ([runner yblk] + 1 == objs[x].yblk && [runner ypos] % [currentBoard tileHeight])))
 						  {
 							dead = TRUE;
-						  } 
+						  }
 					   else if ([runner xblk] + 1 == objs[x].xblk && [runner yblk] == objs[x].yblk && ([runner xpos] % [currentBoard tileWidth]))
 							{
 							dead = TRUE;
@@ -1599,7 +1560,7 @@ struct object objs[MAX_OBJECTS];
       block_move[max_block_move].mode = 0;
       block_move[max_block_move].xblk = brd_x_exit;
       block_move[max_block_move].yblk = y;
-      block_move[max_block_move++].tile = exit_block[y].tile;    
+      block_move[max_block_move++].tile = exit_block[y].tile;
       }
 }
 
@@ -1607,7 +1568,6 @@ struct object objs[MAX_OBJECTS];
 {
 
 	[updateTimer invalidate];
-	[updateTimer release];
 	updateTimer = nil;
 	[NSThread sleepForTimeInterval:POST_DIE_SLEEP_DELAY];
 	runner_lives--;
@@ -1763,7 +1723,7 @@ struct object objs[MAX_OBJECTS];
       block_move[max_block_move].mode = FALSE;
       block_move[max_block_move].xblk = brd_x_exit;
       block_move[max_block_move].yblk = y;
-      block_move[max_block_move++].tile = tilenum;    
+      block_move[max_block_move++].tile = tilenum;
       }
 	for (y=0;y<MAX_OBJECTS;y++)
 		{
@@ -1855,7 +1815,6 @@ struct object objs[MAX_OBJECTS];
 	short x;
 
 	[updateTimer invalidate];
-	[updateTimer release];
 	updateTimer = nil;
 	[self playSound:SOUND_WIN];
 	[NSThread sleepForTimeInterval:POST_WIN_BOARD_SLEEP_DELAY];
