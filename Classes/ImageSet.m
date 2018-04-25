@@ -10,6 +10,7 @@
 * Copyright:		(c) 2008 Infusions of Grandeur. All rights reserved.
 ********************************************************************************
 *	12/09/08		*	EGC	*	File creation date
+*	04/23/18		*	EGC *	Updated to properly access embedded resources
 *******************************************************************************/
 
 #import "ImageSet.h"
@@ -51,8 +52,9 @@
 - (BOOL)loadImages:(NSString *)fileName mode:(int)mode
 {
 
-	NSString			*setPath = [[NSHomeDirectory() stringByAppendingString:DEFAULT_IMAGE_PATH] stringByAppendingString:fileName];
-	NSData				*setData = [NSData dataWithContentsOfFile:setPath];
+	NSArray				*fileComponents = [fileName componentsSeparatedByString:@"."];
+	NSString			*resourceName = [[NSBundle mainBundle] pathForResource:fileComponents[0] ofType:fileComponents[1]];
+	NSData				*setData = [NSData dataWithContentsOfFile:resourceName];
 	const void			*setBytes = [setData bytes];
 	unsigned char		*dataMarker = (unsigned char *)setBytes;			// Starts at the beginning of the header
 	unsigned char		header[HEADER_LENGTH + 1];

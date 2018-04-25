@@ -10,6 +10,7 @@
 * Copyright:		(c) 2008 Infusions of Grandeur. All rights reserved.
 ********************************************************************************
 *	12/09/08		*	EGC	*	File creation date
+*	04/23/18		*	EGC *	Updated to properly access embedded resources
 *******************************************************************************/
 
 #import "Palette.h"
@@ -39,8 +40,9 @@
 - (BOOL)loadPalette:(NSString *)filename
 {
 
-	NSString				*palettePath = [[NSHomeDirectory() stringByAppendingString:DEFAULT_PALETTE_PATH] stringByAppendingString:filename];
-	NSData					*paletteData = [NSData dataWithContentsOfFile:palettePath];
+	NSArray					*fileComponents = [filename componentsSeparatedByString:@"."];
+	NSString				*resourceName = [[NSBundle mainBundle] pathForResource:fileComponents[0] ofType:fileComponents[1]];
+	NSData					*paletteData = [NSData dataWithContentsOfFile:resourceName];
 	const void				*paletteBytes = [paletteData bytes];
 	unsigned char			*dataMarker = (unsigned char *)paletteBytes;			// Starts at the beginning of the data
 	int						index = 0;

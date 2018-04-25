@@ -10,6 +10,7 @@
 * Copyright:		(c) 2008 Infusions of Grandeur. All rights reserved.
 ********************************************************************************
 *	12/09/08		*	EGC	*	File creation date
+*	04/23/18		*	EGC *	Updated to properly access embedded resources
 *******************************************************************************/
 
 #import "Gameboard.h"
@@ -61,8 +62,8 @@
 - (BOOL)loadGameboard:(int)levelNumber
 {
 
-	NSString			*boardPath = [[[[NSHomeDirectory() stringByAppendingString:DEFAULT_GAMEBOARD_PATH] stringByAppendingString:@"level"] stringByAppendingString:[[NSNumber numberWithInt:levelNumber] stringValue]] stringByAppendingString:@".gmb"];
-	NSData				*boardData = [NSData dataWithContentsOfFile:boardPath];
+	NSString			*resourceName = [[NSBundle mainBundle] pathForResource:[@"level" stringByAppendingString:[[NSNumber numberWithInt:levelNumber] stringValue]] ofType:@".gmb"];
+	NSData				*boardData = [NSData dataWithContentsOfFile:resourceName];
 	const void			*boardBytes = [boardData bytes];
 	unsigned char		*dataMarker = (unsigned char *)boardBytes;			// Starts at the beginning of the header
 	unsigned char		header[HEADER_LENGTH + 1];

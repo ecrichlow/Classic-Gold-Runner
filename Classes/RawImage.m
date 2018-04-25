@@ -10,6 +10,7 @@
 * Copyright:		(c) 2008 Infusions of Grandeur. All rights reserved.
 ********************************************************************************
 *	12/10/08		*	EGC	*	File creation date
+*	04/23/18		*	EGC *	Updated to properly access embedded resources
 *******************************************************************************/
 
 #import "RawImage.h"
@@ -45,8 +46,8 @@
 - (BOOL)loadRawImage:(NSString *)filename withWidth:(int)width height:(int)height
 {
 
-	NSString			*imagePath = [[NSHomeDirectory() stringByAppendingString:DEFAULT_IMAGE_PATH] stringByAppendingString:filename];
-	NSData				*imageRawData = [NSData dataWithContentsOfFile:imagePath];
+	NSString			*resourceName = [[NSBundle mainBundle] pathForResource:filename ofType:@""];
+	NSData				*imageRawData = [NSData dataWithContentsOfFile:resourceName];
 	const void			*imageBytes = [imageRawData bytes];
 	unsigned char		*dataMarker = (unsigned char *)imageBytes;			// Starts at the beginning of the data
 	unsigned char		*imageData = malloc(width * height * DEFAULT_BYTES_PER_PIXEL);

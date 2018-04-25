@@ -10,6 +10,7 @@
 * Copyright:		(c) 2008 Infusions of Grandeur. All rights reserved.
 ********************************************************************************
 *	12/02/08		*	EGC	*	File creation date
+*	04/23/18		*	EGC *	Updated to properly access embedded resources
 *******************************************************************************/
 
 #import "Classic_Gold_RunnerAppDelegate.h"
@@ -66,7 +67,7 @@ struct object objs[MAX_OBJECTS];
 	titleImage = [[RawImage alloc] init];
 	[titleImage loadRawImage:TITLE_IMAGE_FILE withWidth:TITLE_WIDTH height:TITLE_HEIGHT];
 	gamePlayViewController = [[Classic_Gold_RunnerViewController alloc] initWithNibName:@"Classic_Gold_RunnerViewController" bundle:nil];
-	[window addSubview:gamePlayViewController.view];
+	[window setRootViewController:gamePlayViewController];
 	[gamePlayViewController.view removeFromSuperview];
 	for (int x=0;x<MAX_MOVE_BLOCKS;x++)
 		{
@@ -129,8 +130,8 @@ struct object objs[MAX_OBJECTS];
 	invertedHS = nil;
 	curtainTimer = nil;
 	curtainPull = 0;
-	background = [[UIImage imageWithContentsOfFile:[NSHomeDirectory() stringByAppendingString:@"/Gold Runner.app/background.png"]] retain];
-	spotlight = [[UIImage imageWithContentsOfFile:[NSHomeDirectory() stringByAppendingString:@"/Gold Runner.app/spotlight.png"]] retain];
+	background = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"background" ofType:@"png"]];
+	spotlight = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"spotlight" ofType:@"png"]];
 	buttonSize = BUTTON_SIZE_LARGE;
 	screenOrientation = SCREEN_ORIENTATION_VERTICAL;
 	controlStyle = CONTROL_STYLE_PRECISE;
@@ -382,7 +383,8 @@ struct object objs[MAX_OBJECTS];
 {
 
 	// Set the title image; This may have been released while the game was playing
-	HSTitleView.image = [UIImage imageWithContentsOfFile:[[NSHomeDirectory() stringByAppendingString:DEFAULT_IMAGE_PATH] stringByAppendingString:IOG_TITLE_IMAGE_FILE]];
+	NSArray				*fileComponents = [IOG_TITLE_IMAGE_FILE componentsSeparatedByString:@"."];
+	HSTitleView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:fileComponents[0] ofType:fileComponents[1]]];
 
 	// Show the top 10 scores
 	for (int index=0;index<10;index++)

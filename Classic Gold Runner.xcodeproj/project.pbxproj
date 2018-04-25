@@ -233,11 +233,11 @@
 		27DC8AB30F4001100029343A /* level7.gmb */ = {isa = PBXFileReference; lastKnownFileType = file; path = level7.gmb; sourceTree = "<group>"; };
 		27DC8AB40F4001100029343A /* level8.gmb */ = {isa = PBXFileReference; lastKnownFileType = file; path = level8.gmb; sourceTree = "<group>"; };
 		27DC8AB50F4001100029343A /* level9.gmb */ = {isa = PBXFileReference; lastKnownFileType = file; path = level9.gmb; sourceTree = "<group>"; };
-		27DC8AB70F4001100029343A /* char_classic_256.clp */ = {isa = PBXFileReference; lastKnownFileType = file; path = char_classic_256.clp; sourceTree = "<group>"; };
+		27DC8AB70F4001100029343A /* char_classic_256.clp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.clips; path = char_classic_256.clp; sourceTree = "<group>"; };
 		27DC8AB80F4001100029343A /* classic_256.pal */ = {isa = PBXFileReference; lastKnownFileType = file; path = classic_256.pal; sourceTree = "<group>"; };
 		27DC8AB90F4001100029343A /* intro_256 */ = {isa = PBXFileReference; lastKnownFileType = file; path = intro_256; sourceTree = "<group>"; };
 		27DC8ABA0F4001100029343A /* IoGTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IoGTitle.png; sourceTree = "<group>"; };
-		27DC8ABB0F4001100029343A /* tile_classic_256.clp */ = {isa = PBXFileReference; lastKnownFileType = file; path = tile_classic_256.clp; sourceTree = "<group>"; };
+		27DC8ABB0F4001100029343A /* tile_classic_256.clp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.clips; path = tile_classic_256.clp; sourceTree = "<group>"; };
 		27DC8ABC0F4001100029343A /* title_256 */ = {isa = PBXFileReference; lastKnownFileType = file; path = title_256; sourceTree = "<group>"; };
 		27DC8ABE0F4001100029343A /* Dig.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Dig.aif; sourceTree = "<group>"; };
 		27DC8ABF0F4001100029343A /* GuardDie.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = GuardDie.aif; sourceTree = "<group>"; };
@@ -549,6 +549,8 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Classic Gold Runner" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
@@ -711,14 +713,16 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Eric Crichlow";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 97J36M7BW8;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Classic_Gold_Runner_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				PRODUCT_NAME = "Gold Runner";
-				PROVISIONING_PROFILE = "6F0FEA49-3073-496C-AA2E-87904DB90DF4";
+				PROVISIONING_PROFILE = "CC20E336-4B93-4DF5-91C9-D8E6907D5084";
+				PROVISIONING_PROFILE_SPECIFIER = "Gold Runner Development Profile";
 			};
 			name = Debug;
 		};
@@ -726,24 +730,28 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = 97J36M7BW8;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Classic_Gold_Runner_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				PRODUCT_NAME = "Gold Runner";
+				PROVISIONING_PROFILE = "e4dfb103-1448-4f07-aa86-f53dd6ad373a";
+				PROVISIONING_PROFILE_SPECIFIER = "Gold Runner Development Profile";
 			};
 			name = Release;
 		};
 		27DC8B9F0F40051D0029343A /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				PREBINDING = NO;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -758,7 +766,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Classic_Gold_Runner_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				PRODUCT_NAME = "Gold Runner";
 			};
 			name = Distribution;
@@ -766,12 +774,13 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
@@ -781,12 +790,12 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				PREBINDING = NO;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
