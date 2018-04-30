@@ -51,25 +51,6 @@
 
 #pragma mark - View Lifecycle
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-	
-	if (gameView == gameViewHorizontal)
-		{
-		if (interfaceOrientation == UIDeviceOrientationLandscapeRight || interfaceOrientation == UIDeviceOrientationLandscapeLeft)
-			return YES;
-		else
-			return NO;
-		}
-	else
-		{
-		if (interfaceOrientation == UIInterfaceOrientationPortrait)
-			return YES;
-		else
-			return NO;
-		}
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -262,13 +243,6 @@
 		quitButton = quitButtonHorizontal;
 		pauseButton = pauseButtonHorizontal;
 		}
-}
-
-- (void)setupFlickInput
-{
-
-	[self.view bringSubviewToFront:pauseButton];
-	[self.view bringSubviewToFront:quitButton];
 }
 
 @end

@@ -106,6 +106,5 @@
 - (IBAction)stopMoveRight:(id)sender;
 - (void)setStats:(unsigned int)score level:(short)level lives:(short)lives;
 - (void)setViewType:(int)viewType;
-- (void)setupFlickInput;
 @end
 

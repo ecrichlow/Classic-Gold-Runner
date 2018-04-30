@@ -14,7 +14,8 @@
 
 #import <UIKit/UIKit.h>
 
-#define TOUCH_DRAG_OFFSET				6		// Number of points a touch has to move before we consider it a flick
+#define TOUCH_DRAG_OFFSET_PHONE_X_AXIS				4		// Number of points a touch has to move before we consider it a flick
+#define TOUCH_DRAG_OFFSET_PHONE_Y_AXIS				6		// Number of points a touch has to move before we consider it a flick
 
 @interface FlickView : UIView
 {

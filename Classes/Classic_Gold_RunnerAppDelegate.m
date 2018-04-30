@@ -12,6 +12,9 @@
 *	12/02/08		*	EGC	*	File creation date
 *	04/23/18		*	EGC *	Updated to properly access embedded resources
 *	04/24/18		*	EGC *	Converted to ARC
+*	04/28/18		*	EGC	*	Changed implementation of FlickView so that
+*								it works without moving pause and quit buttons
+*								between parent views
 *******************************************************************************/
 
 #import "Classic_Gold_RunnerAppDelegate.h"
@@ -336,13 +339,7 @@ struct object objs[MAX_OBJECTS];
 	currentBoard = nil;
 	if (flickView)
 		{
-		// First, move pause and stop buttons back to the game view
-		if ([gamePlayViewController.pauseButton superview] == flickView)
-			{
-			[gamePlayViewController.view addSubview:gamePlayViewController.pauseButton];
-			[gamePlayViewController.view addSubview:gamePlayViewController.quitButton];
-			}
-		// Now remove FlickView from screen before pushing screen off window
+		// Remove FlickView from screen before pushing screen off window
 		[flickView removeFromSuperview];
 		flickView = nil;
 		}
@@ -599,7 +596,7 @@ struct object objs[MAX_OBJECTS];
 		}
 	self.gameScreenView = gamePlayViewController.gameView;
 	gameScreenView.hidden = YES;					// Done to keep the level from flashing before the curtain reveal
-	gameScreenView.image = frame;		// Always autorelease frame when it gets assigned to the imageview
+	gameScreenView.image = frame;					// Always autorelease frame when it gets assigned to the imageview
 	curtainView = gamePlayViewController.curtain;
 	[self loadLevelStats];
 	// Add the subview that draw the characters
@@ -734,8 +731,15 @@ struct object objs[MAX_OBJECTS];
 	// Set up flick view to dismiss curtain on any touch
 	if (flickView == nil)
 		{
-		flickView = [[FlickView alloc] initWithFrame:CGRectMake(0.0, 0.0, SCREEN_WIDTH, SCREEN_HEIGHT)];
-		[window addSubview:flickView];
+		if (screenOrientation == SCREEN_ORIENTATION_HORIZONTAL)
+			{
+			flickView = [[FlickView alloc] initWithFrame:CGRectMake(0.0, 0.0, gamePlayViewController.view.frame.size.height, gamePlayViewController.view.frame.size.width)];
+			}
+		else
+			{
+			flickView = [[FlickView alloc] initWithFrame:CGRectMake(0.0, 0.0, gamePlayViewController.view.frame.size.width, gamePlayViewController.view.frame.size.height)];
+			}
+		[gamePlayViewController.view addSubview:flickView];
 		if (screenOrientation == SCREEN_ORIENTATION_HORIZONTAL)
 			{
 			UIScreen *screen = [UIScreen mainScreen];
@@ -743,6 +747,8 @@ struct object objs[MAX_OBJECTS];
 			flickView.bounds = CGRectMake(0, 0, screen.bounds.size.height, screen.bounds.size.width);
 			flickView.center = CGPointMake( screen.bounds.size.width/2, screen.bounds.size.height/2 );
 			}
+		[gamePlayViewController.view bringSubviewToFront:gamePlayViewController.pauseButton];
+		[gamePlayViewController.view bringSubviewToFront:gamePlayViewController.quitButton];
 		}
 
 	if (screenOrientation != SCREEN_ORIENTATION_HORIZONTAL)
@@ -755,8 +761,6 @@ struct object objs[MAX_OBJECTS];
 		{
 		curtainView.hidden = YES;
 		gameScreenView.hidden = NO;
-		[flickView addSubview:gamePlayViewController.pauseButton];
-		[flickView addSubview:gamePlayViewController.quitButton];
 		[runner setDir:STOP];
 		[self setController_dir:STOP];
 		[self setRunner_dig:FALSE];
@@ -840,20 +844,9 @@ struct object objs[MAX_OBJECTS];
 
 	if (controlStyle != CONTROL_STYLE_FLICK)
 		{
-		// First, move pause and stop buttons back to the game view
-		if ([gamePlayViewController.pauseButton superview] == flickView)
-			{
-			[gamePlayViewController.view addSubview:gamePlayViewController.pauseButton];
-			[gamePlayViewController.view addSubview:gamePlayViewController.quitButton];
-			}
-		// Now remove FlickView from screen before setting up a new one
+		// Remove FlickView from screen before setting up a new one
 		[flickView removeFromSuperview];
 		flickView = nil;
-		}
-	else
-		{
-		[flickView addSubview:gamePlayViewController.pauseButton];
-		[flickView addSubview:gamePlayViewController.quitButton];
 		}
 
 	[runner setDir:STOP];
@@ -949,11 +942,6 @@ struct object objs[MAX_OBJECTS];
 	upButtonPressed = NO;
 	downButtonPressed = NO;
 	acceptingInput = YES;
-	if ([gamePlayViewController.pauseButton superview] != gamePlayViewController.view && (controlStyle != CONTROL_STYLE_FLICK && screenOrientation != SCREEN_ORIENTATION_HORIZONTAL))		// Pause and Quit buttons were moved to the flick view, move them back
-		{
-		[gamePlayViewController.view addSubview:gamePlayViewController.pauseButton];
-		[gamePlayViewController.view addSubview:gamePlayViewController.quitButton];
-		}
 
 }
 
@@ -990,13 +978,7 @@ struct object objs[MAX_OBJECTS];
 			currentBoard = nil;
 			if (flickView)
 				{
-				// First, move pause and stop buttons back to the game view
-				if ([gamePlayViewController.pauseButton superview] == flickView)
-					{
-					[gamePlayViewController.view addSubview:gamePlayViewController.pauseButton];
-					[gamePlayViewController.view addSubview:gamePlayViewController.quitButton];
-					}
-				// Now remove FlickView from screen before pushing screen off window
+				// Remove FlickView from screen before pushing screen off window
 				[flickView removeFromSuperview];
 				flickView = nil;
 				}

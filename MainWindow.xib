@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -36,26 +36,75 @@
         </customObject>
         <viewController nibName="Classic_Gold_RunnerViewController" id="10" customClass="Classic_Gold_RunnerViewController">
             <extendedEdge key="edgesForExtendedLayout"/>
+            <point key="canvasLocation" x="941" y="-304"/>
         </viewController>
         <window opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" resizesToFullScreen="NO" id="12">
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="52" y="369"/>
         </window>
         <viewController id="15" userLabel="High Scores Controller">
             <extendedEdge key="edgesForExtendedLayout"/>
             <connections>
                 <outlet property="view" destination="16" id="25"/>
             </connections>
+            <point key="canvasLocation" x="485" y="-305"/>
         </viewController>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="16" userLabel="High Scores">
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="21">
+                <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="37">
+                    <rect key="frame" x="32" y="27" width="256" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="0Se-nD-k2C"/>
+                        <constraint firstAttribute="width" constant="256" id="ixL-KA-VYM"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Rank" lineBreakMode="tailTruncation" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="60">
+                    <rect key="frame" x="32" y="111" width="26" height="12"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="26" id="CD2-5Z-tXy"/>
+                        <constraint firstAttribute="height" constant="12" id="LCd-cN-wV2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Score" lineBreakMode="tailTruncation" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="61">
+                    <rect key="frame" x="67" y="111" width="30" height="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="12" id="JMF-av-Vcn"/>
+                        <constraint firstAttribute="width" constant="30" id="fH5-5J-vfa"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Name" lineBreakMode="tailTruncation" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="62">
+                    <rect key="frame" x="132" y="111" width="32" height="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="12" id="aXa-IL-OoN"/>
+                        <constraint firstAttribute="width" constant="32" id="bf8-t6-EjE"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="41">
+                    <rect key="frame" x="32" y="120" width="256" height="220"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="220" id="8PL-hZ-5Do"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="21" userLabel="Preferences Button">
                     <rect key="frame" x="20" y="348" width="280" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="TKp-cY-Vfw"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                     <state key="normal" image="PreferencesButton.png">
                         <color key="titleColor" red="0.19607843" green="0.30980393000000001" blue="0.52156866000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -70,9 +119,11 @@
                         <action selector="showPreferences:" destination="3" eventType="touchUpInside" id="44"/>
                     </connections>
                 </button>
-                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="22">
+                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22" userLabel="Start Level Button">
                     <rect key="frame" x="20" y="388" width="280" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="7Wd-vI-15J"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                     <state key="normal" image="SetStartLevelButton.png">
                         <color key="titleColor" red="0.19607843" green="0.30980393000000001" blue="0.52156866000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -87,9 +138,11 @@
                         <action selector="setStartLevel:" destination="3" eventType="touchUpInside" id="109"/>
                     </connections>
                 </button>
-                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="23">
+                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23" userLabel="Start Button">
                     <rect key="frame" x="20" y="428" width="280" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="0xH-nC-pA9"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                     <state key="normal" image="StartButton.png">
                         <color key="titleColor" red="0.19607843" green="0.30980393000000001" blue="0.52156866000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -104,40 +157,33 @@
                         <action selector="startGame:" destination="3" eventType="touchUpInside" id="46"/>
                     </connections>
                 </button>
-                <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="center" id="37">
-                    <rect key="frame" x="32" y="27" width="256" height="80"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="41">
-                    <rect key="frame" x="32" y="120" width="256" height="220"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </view>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Rank" lineBreakMode="tailTruncation" minimumFontSize="7" id="60">
-                    <rect key="frame" x="32" y="111" width="26" height="12"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Score" lineBreakMode="tailTruncation" minimumFontSize="7" id="61">
-                    <rect key="frame" x="67" y="111" width="30" height="12"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Name" lineBreakMode="tailTruncation" minimumFontSize="7" id="62">
-                    <rect key="frame" x="132" y="111" width="32" height="12"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="22" firstAttribute="top" secondItem="21" secondAttribute="bottom" constant="8" id="1y0-hN-elt"/>
+                <constraint firstAttribute="trailing" secondItem="21" secondAttribute="trailing" constant="20" id="24r-Ic-xHf"/>
+                <constraint firstAttribute="trailing" secondItem="41" secondAttribute="trailing" constant="32" id="APb-eM-Wsk"/>
+                <constraint firstItem="22" firstAttribute="leading" secondItem="16" secondAttribute="leading" constant="20" id="BAv-mw-lK7"/>
+                <constraint firstItem="41" firstAttribute="top" secondItem="60" secondAttribute="bottom" constant="-3" id="Hr3-6F-VWz"/>
+                <constraint firstItem="37" firstAttribute="centerX" secondItem="16" secondAttribute="centerX" id="KAw-KK-qgw"/>
+                <constraint firstItem="61" firstAttribute="leading" secondItem="60" secondAttribute="trailing" constant="9" id="MaF-gY-BuM"/>
+                <constraint firstItem="60" firstAttribute="leading" secondItem="37" secondAttribute="leading" id="PIV-B8-Lv8"/>
+                <constraint firstItem="60" firstAttribute="top" secondItem="37" secondAttribute="bottom" constant="4" id="PsW-zE-JNi"/>
+                <constraint firstItem="21" firstAttribute="top" secondItem="41" secondAttribute="bottom" constant="8" id="QFx-Rn-KlX"/>
+                <constraint firstItem="62" firstAttribute="top" secondItem="37" secondAttribute="bottom" constant="4" id="Y82-v3-4ad"/>
+                <constraint firstItem="41" firstAttribute="leading" secondItem="16" secondAttribute="leading" constant="32" id="ZmX-8q-bxf"/>
+                <constraint firstItem="37" firstAttribute="top" secondItem="16" secondAttribute="top" constant="27" id="kMd-I4-ChR"/>
+                <constraint firstItem="61" firstAttribute="top" secondItem="37" secondAttribute="bottom" constant="4" id="kNd-1G-9xl"/>
+                <constraint firstItem="21" firstAttribute="leading" secondItem="16" secondAttribute="leading" constant="20" id="kdz-gB-5P8"/>
+                <constraint firstAttribute="trailing" secondItem="23" secondAttribute="trailing" constant="20" id="kuT-iw-bV9"/>
+                <constraint firstItem="23" firstAttribute="leading" secondItem="16" secondAttribute="leading" constant="20" id="lh7-M2-MpY"/>
+                <constraint firstItem="23" firstAttribute="top" secondItem="22" secondAttribute="bottom" constant="8" id="mu8-hC-qMo"/>
+                <constraint firstAttribute="trailing" secondItem="22" secondAttribute="trailing" constant="20" id="ph5-wc-Ybc"/>
+                <constraint firstItem="62" firstAttribute="leading" secondItem="61" secondAttribute="trailing" constant="35" id="voY-dR-uhb"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="469" y="1051"/>
         </view>
         <viewController id="31" userLabel="Preferences Controller">
             <extendedEdge key="edgesForExtendedLayout"/>
@@ -149,150 +195,192 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Button Size:" lineBreakMode="tailTruncation" minimumFontSize="8" id="69">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Button Size:" lineBreakMode="tailTruncation" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="69">
                     <rect key="frame" x="20" y="30" width="84" height="16"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="AyZ-w5-tfe"/>
+                        <constraint firstAttribute="width" constant="84" id="acb-Ou-DU4"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <segmentedControl opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="2" id="70">
-                    <rect key="frame" x="20" y="52" width="280" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <segmentedControl opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="70">
+                    <rect key="frame" x="20" y="52" width="280" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="kkf-Sr-Ys5"/>
+                    </constraints>
                     <segments>
                         <segment title="Small"/>
                         <segment title="Medium"/>
                         <segment title="Large"/>
                     </segments>
                 </segmentedControl>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Gold Runner has 3 different button layouts to fit" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="12" id="72">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Gold Runner has 3 different button layouts to fit" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="72">
                     <rect key="frame" x="20" y="87" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="Rp0-Vv-kc4"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="your personal preference." textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="12" id="82">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="your personal preference." textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="82">
                     <rect key="frame" x="20" y="102" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="4vn-2y-QOe"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Screen Orientation:" lineBreakMode="tailTruncation" minimumFontSize="10" id="74">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Screen Orientation:" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="74">
                     <rect key="frame" x="20" y="125" width="132" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="8vD-jH-I7W"/>
+                        <constraint firstAttribute="width" constant="132" id="QHz-9j-YVx"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <segmentedControl opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="1" id="75">
-                    <rect key="frame" x="20" y="152" width="280" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <segmentedControl opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="75">
+                    <rect key="frame" x="20" y="152" width="280" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="Oqs-JR-Uww"/>
+                    </constraints>
                     <segments>
                         <segment title="Horizontal"/>
                         <segment title="Vertical"/>
                     </segments>
                 </segmentedControl>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Gold Runner has a horizontal layout option that" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="12" id="76">
-                    <rect key="frame" x="20" y="187" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Gold Runner has a horizontal layout option that" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="76">
+                    <rect key="frame" x="20" y="187" width="280" height="13.5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="13.5" id="5cF-7A-DIv"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="scales the gameboard up to be slightly bigger to" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="12" id="77">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="scales the gameboard up to be slightly bigger to" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="77">
                     <rect key="frame" x="20" y="202" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="6SH-cq-Wdb"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="make it easier on the eyes." textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="12" id="83">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="make it easier on the eyes." textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="83">
                     <rect key="frame" x="20" y="217" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="uNQ-3P-KJy"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Gold Runner has 3 control styles to best suit your" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="12" id="85">
-                    <rect key="frame" x="20" y="302" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="play. Precise control moves the player when you" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="12" id="86">
-                    <rect key="frame" x="20" y="317" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="press a button and stops the player when you" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="12" id="87">
-                    <rect key="frame" x="20" y="332" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="release it. Stick control causes the player to" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="12" id="88">
-                    <rect key="frame" x="20" y="347" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="continue moving after you release the button until" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="12" id="89">
-                    <rect key="frame" x="20" y="362" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="you press another button. Flick works the same as" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="12" id="90">
-                    <rect key="frame" x="20" y="377" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Stick except you flick the screen in the direction" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="12" id="91">
-                    <rect key="frame" x="20" y="392" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="you want to move to start movement." textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="12" id="151">
-                    <rect key="frame" x="20" y="407" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Control Style:" lineBreakMode="tailTruncation" minimumFontSize="10" id="80">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Control Style:" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="80">
                     <rect key="frame" x="20" y="240" width="95" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="95" id="0az-vJ-9XM"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="c0g-3R-KOg"/>
+                        <constraint firstAttribute="height" constant="21" id="rKM-YD-EiR"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <segmentedControl opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="84">
-                    <rect key="frame" x="20" y="267" width="280" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <segmentedControl opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="84">
+                    <rect key="frame" x="20" y="267" width="280" height="29"/>
                     <segments>
                         <segment title="Precise"/>
                         <segment title="Stick"/>
                         <segment title="Flick"/>
                     </segments>
                 </segmentedControl>
-                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="98">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Gold Runner has 3 control styles to best suit your" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="85">
+                    <rect key="frame" x="20" y="302" width="280" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="dl5-Yj-WC7"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="play. Precise control moves the player when you" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="86">
+                    <rect key="frame" x="20" y="317" width="280" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="jew-HX-1xC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="press a button and stops the player when you" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="87">
+                    <rect key="frame" x="20" y="332" width="280" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="xZy-Ji-WMj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="release it. Stick control causes the player to" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="88">
+                    <rect key="frame" x="20" y="347" width="280" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="3xp-Xn-ad4"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="continue moving after you release the button until" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="89">
+                    <rect key="frame" x="20" y="362" width="280" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="mGn-hd-nSn"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="you press another button. Flick works the same as" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="90">
+                    <rect key="frame" x="20" y="377" width="280" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="Qv7-7c-Lah"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Stick except you flick the screen in the direction" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="91">
+                    <rect key="frame" x="20" y="392" width="280" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="tBB-ic-Ija"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="you want to move to start movement." textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="151">
+                    <rect key="frame" x="20" y="407" width="280" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="iHl-LE-NC4"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98">
                     <rect key="frame" x="228" y="432" width="72" height="37"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="72" id="3Ve-El-F1k"/>
+                        <constraint firstAttribute="height" constant="37" id="5Yy-BZ-BeP"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                     <state key="normal" title="Close">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <state key="disabled" title="Close"/>
@@ -304,12 +392,15 @@
                         <action selector="closePreferences:" destination="3" eventType="touchUpInside" id="112"/>
                     </connections>
                 </button>
-                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="126">
+                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="126">
                     <rect key="frame" x="20" y="432" width="110" height="37"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="37" id="4DJ-Kt-imk"/>
+                        <constraint firstAttribute="width" constant="110" id="lvy-5l-ok8"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                     <state key="normal" title="Instructions">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <state key="disabled" title="Instructions"/>
@@ -323,8 +414,69 @@
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="85" secondAttribute="trailing" constant="20" id="2KX-Ub-GLG"/>
+                <constraint firstAttribute="trailing" secondItem="89" secondAttribute="trailing" constant="20" id="2Qz-nZ-mJ7"/>
+                <constraint firstItem="76" firstAttribute="leading" secondItem="32" secondAttribute="leading" constant="20" id="4Aa-1y-wRK"/>
+                <constraint firstItem="89" firstAttribute="leading" secondItem="32" secondAttribute="leading" constant="20" id="5OA-an-gky"/>
+                <constraint firstItem="75" firstAttribute="leading" secondItem="32" secondAttribute="leading" constant="20" id="5Rt-kf-WmX"/>
+                <constraint firstAttribute="trailing" secondItem="70" secondAttribute="trailing" constant="20" id="5w8-gr-tKf"/>
+                <constraint firstItem="80" firstAttribute="leading" secondItem="32" secondAttribute="leading" constant="20" id="8Pk-xf-xJ3"/>
+                <constraint firstItem="75" firstAttribute="top" secondItem="74" secondAttribute="bottom" constant="6" id="AG2-cu-w49"/>
+                <constraint firstItem="80" firstAttribute="top" secondItem="83" secondAttribute="bottom" constant="6" id="BQ7-P9-J8e"/>
+                <constraint firstItem="70" firstAttribute="top" secondItem="69" secondAttribute="bottom" constant="6" id="BiK-7I-aYD"/>
+                <constraint firstItem="72" firstAttribute="leading" secondItem="32" secondAttribute="leading" constant="20" id="Em9-Jf-qXD"/>
+                <constraint firstAttribute="trailing" secondItem="86" secondAttribute="trailing" constant="20" id="FpM-fF-kaf"/>
+                <constraint firstAttribute="trailing" secondItem="84" secondAttribute="trailing" constant="20" id="G9q-SU-s3K"/>
+                <constraint firstItem="86" firstAttribute="leading" secondItem="32" secondAttribute="leading" constant="20" id="Gil-YB-bBI"/>
+                <constraint firstAttribute="trailing" secondItem="76" secondAttribute="trailing" constant="20" id="HGR-hT-0aG"/>
+                <constraint firstItem="74" firstAttribute="top" secondItem="82" secondAttribute="bottom" constant="6" id="JC9-WE-No5"/>
+                <constraint firstItem="88" firstAttribute="leading" secondItem="32" secondAttribute="leading" constant="20" id="MZe-1B-ALd"/>
+                <constraint firstItem="70" firstAttribute="leading" secondItem="32" secondAttribute="leading" constant="20" id="MbQ-dA-cp0"/>
+                <constraint firstItem="151" firstAttribute="top" secondItem="91" secondAttribute="bottom" constant="-2" id="Nsn-vi-hRh"/>
+                <constraint firstAttribute="trailing" secondItem="77" secondAttribute="trailing" constant="20" id="OSQ-2F-hTT"/>
+                <constraint firstItem="74" firstAttribute="leading" secondItem="32" secondAttribute="leading" constant="20" id="RgO-rY-mpo"/>
+                <constraint firstItem="89" firstAttribute="top" secondItem="88" secondAttribute="bottom" constant="-2" id="Rmf-ZI-sfo"/>
+                <constraint firstItem="84" firstAttribute="leading" secondItem="32" secondAttribute="leading" constant="20" id="Sea-gt-0Z2"/>
+                <constraint firstItem="69" firstAttribute="leading" secondItem="32" secondAttribute="leading" constant="20" id="UEM-TQ-9FF"/>
+                <constraint firstItem="85" firstAttribute="top" secondItem="84" secondAttribute="bottom" constant="7" id="VE9-TQ-DKm"/>
+                <constraint firstItem="151" firstAttribute="leading" secondItem="32" secondAttribute="leading" constant="20" id="VsL-jX-Daa"/>
+                <constraint firstItem="83" firstAttribute="top" secondItem="77" secondAttribute="bottom" constant="-2" id="Xdb-pS-K2K"/>
+                <constraint firstItem="77" firstAttribute="top" secondItem="76" secondAttribute="bottom" constant="1.5" id="Z89-d8-efz"/>
+                <constraint firstAttribute="trailing" secondItem="82" secondAttribute="trailing" constant="20" id="Z9r-oX-Vgu"/>
+                <constraint firstItem="90" firstAttribute="leading" secondItem="32" secondAttribute="leading" constant="20" id="aYr-bt-7Fs"/>
+                <constraint firstItem="76" firstAttribute="top" secondItem="75" secondAttribute="bottom" constant="7" id="b8z-n2-tFf"/>
+                <constraint firstItem="83" firstAttribute="leading" secondItem="32" secondAttribute="leading" constant="20" id="bMA-ju-J2K"/>
+                <constraint firstItem="88" firstAttribute="top" secondItem="87" secondAttribute="bottom" constant="-2" id="dAm-tl-mVx"/>
+                <constraint firstAttribute="trailing" secondItem="87" secondAttribute="trailing" constant="20" id="e0q-Ze-h0K"/>
+                <constraint firstAttribute="bottom" secondItem="126" secondAttribute="bottom" constant="11" id="eBB-WQ-QvD"/>
+                <constraint firstAttribute="trailing" secondItem="72" secondAttribute="trailing" constant="20" id="gWm-BF-gkk"/>
+                <constraint firstAttribute="trailing" secondItem="90" secondAttribute="trailing" constant="20" id="ggC-lO-fkH"/>
+                <constraint firstAttribute="trailing" secondItem="98" secondAttribute="trailing" constant="20" id="glN-vp-VWG"/>
+                <constraint firstItem="84" firstAttribute="top" secondItem="80" secondAttribute="bottom" constant="6" id="hUo-cV-XCR"/>
+                <constraint firstItem="126" firstAttribute="leading" secondItem="32" secondAttribute="leading" constant="20" id="idG-Kt-d1h"/>
+                <constraint firstItem="85" firstAttribute="leading" secondItem="32" secondAttribute="leading" constant="20" id="ip3-6Y-ZI5"/>
+                <constraint firstAttribute="bottom" secondItem="98" secondAttribute="bottom" constant="11" id="iu7-Jh-VuY"/>
+                <constraint firstAttribute="trailing" secondItem="91" secondAttribute="trailing" constant="20" id="iwg-6e-N98"/>
+                <constraint firstItem="77" firstAttribute="leading" secondItem="32" secondAttribute="leading" constant="20" id="jYk-UM-lo7"/>
+                <constraint firstAttribute="trailing" secondItem="88" secondAttribute="trailing" constant="20" id="keY-oU-mQ1"/>
+                <constraint firstAttribute="trailing" secondItem="83" secondAttribute="trailing" constant="20" id="lU8-nk-elZ"/>
+                <constraint firstAttribute="trailing" secondItem="151" secondAttribute="trailing" constant="20" id="lfP-1E-49Y"/>
+                <constraint firstItem="86" firstAttribute="top" secondItem="85" secondAttribute="bottom" constant="-2" id="qg5-TR-EJg"/>
+                <constraint firstAttribute="trailing" secondItem="75" secondAttribute="trailing" constant="20" id="sbE-qv-atK"/>
+                <constraint firstItem="69" firstAttribute="top" secondItem="32" secondAttribute="top" constant="30" id="tn0-5q-lSN"/>
+                <constraint firstItem="91" firstAttribute="leading" secondItem="32" secondAttribute="leading" constant="20" id="u0Q-P9-IoC"/>
+                <constraint firstItem="90" firstAttribute="top" secondItem="89" secondAttribute="bottom" constant="-2" id="uCP-qD-Gfk"/>
+                <constraint firstItem="87" firstAttribute="top" secondItem="86" secondAttribute="bottom" constant="-2" id="uxJ-5V-JQV"/>
+                <constraint firstItem="82" firstAttribute="top" secondItem="72" secondAttribute="bottom" constant="-2" id="wZj-b9-LeV"/>
+                <constraint firstItem="87" firstAttribute="leading" secondItem="32" secondAttribute="leading" constant="20" id="we1-ko-VqS"/>
+                <constraint firstItem="91" firstAttribute="top" secondItem="90" secondAttribute="bottom" constant="-2" id="xYC-n1-hcr"/>
+                <constraint firstItem="82" firstAttribute="leading" secondItem="32" secondAttribute="leading" constant="20" id="zC3-wm-Lmy"/>
+                <constraint firstItem="72" firstAttribute="top" secondItem="70" secondAttribute="bottom" constant="7" id="zTc-Db-wlO"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-392" y="138"/>
         </view>
         <viewController id="33" userLabel="Set Start Level Controller">
             <extendedEdge key="edgesForExtendedLayout"/>
@@ -336,26 +488,71 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Start Level:" lineBreakMode="tailTruncation" minimumFontSize="8" id="92">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Start Level:" lineBreakMode="tailTruncation" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="92">
                     <rect key="frame" x="20" y="40" width="93" height="16"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="93" id="HHD-Ij-ve0"/>
+                        <constraint firstAttribute="height" constant="16" id="OsT-HK-6S3"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <slider clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="93">
+                <slider clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="93">
                     <rect key="frame" x="18" y="64" width="238" height="29"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="VMq-lG-a1W"/>
+                    </constraints>
                     <connections>
                         <action selector="setStartLevel:" destination="3" eventType="valueChanged" id="107"/>
                     </connections>
                 </slider>
-                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="99">
+                <textField opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="94">
+                    <rect key="frame" x="262" y="59" width="38" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="31" id="LXb-Rv-Kji"/>
+                        <constraint firstAttribute="width" constant="38" id="uqN-19-GMI"/>
+                    </constraints>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Gold Runner contains 33 levels." textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="95">
+                    <rect key="frame" x="20" y="110" width="280" height="14.5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="14.5" id="trg-Fn-SHd"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="You may start on any level that you have" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="96">
+                    <rect key="frame" x="20" y="125" width="280" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="ogo-ug-fSM"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="previously reached." textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="97">
+                    <rect key="frame" x="20" y="140" width="280" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="Fne-D4-ldO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99">
                     <rect key="frame" x="228" y="423" width="72" height="37"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="72" id="K2z-Pe-Gwe"/>
+                        <constraint firstAttribute="height" constant="37" id="LwK-Ye-z0l"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                     <state key="normal" title="Close">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <state key="disabled" title="Close"/>
@@ -367,63 +564,72 @@
                         <action selector="closeSetStartLevel:" destination="3" eventType="touchUpInside" id="113"/>
                     </connections>
                 </button>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Gold Runner contains 33 levels." textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="8" id="95">
-                    <rect key="frame" x="20" y="110" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="You may start on any level that you have" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="8" id="96">
-                    <rect key="frame" x="20" y="125" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="previously reached." textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="8" id="97">
-                    <rect key="frame" x="20" y="140" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <textField opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" id="94">
-                    <rect key="frame" x="262" y="59" width="38" height="31"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="94" secondAttribute="trailing" constant="20" id="22j-q2-D7b"/>
+                <constraint firstItem="97" firstAttribute="top" secondItem="96" secondAttribute="bottom" constant="-2" id="43a-rE-Sd7"/>
+                <constraint firstItem="93" firstAttribute="top" secondItem="92" secondAttribute="bottom" constant="8" id="7WE-jZ-FqE"/>
+                <constraint firstItem="97" firstAttribute="leading" secondItem="34" secondAttribute="leading" constant="20" id="AIS-Cs-Wsc"/>
+                <constraint firstItem="95" firstAttribute="leading" secondItem="34" secondAttribute="leading" constant="20" id="E6J-gV-fuJ"/>
+                <constraint firstItem="93" firstAttribute="leading" secondItem="34" secondAttribute="leading" constant="20" id="Imj-R0-dy4"/>
+                <constraint firstItem="96" firstAttribute="top" secondItem="95" secondAttribute="bottom" constant="0.5" id="JAY-le-hcg"/>
+                <constraint firstItem="96" firstAttribute="leading" secondItem="34" secondAttribute="leading" constant="20" id="KoC-8g-TvE"/>
+                <constraint firstAttribute="bottom" secondItem="99" secondAttribute="bottom" constant="20" id="TBS-A5-6CC"/>
+                <constraint firstAttribute="trailing" secondItem="97" secondAttribute="trailing" constant="20" id="UFC-cx-w37"/>
+                <constraint firstItem="94" firstAttribute="top" secondItem="34" secondAttribute="top" constant="59" id="bpP-ih-lPN"/>
+                <constraint firstItem="92" firstAttribute="leading" secondItem="34" secondAttribute="leading" constant="20" id="jHN-g8-H9q"/>
+                <constraint firstItem="92" firstAttribute="top" secondItem="34" secondAttribute="top" constant="40" id="mhy-4k-e72"/>
+                <constraint firstAttribute="trailing" secondItem="95" secondAttribute="trailing" constant="20" id="oiD-tu-N5U"/>
+                <constraint firstAttribute="trailing" secondItem="96" secondAttribute="trailing" constant="20" id="q1g-UL-IgQ"/>
+                <constraint firstAttribute="trailing" secondItem="99" secondAttribute="trailing" constant="20" id="sdy-3l-b9o"/>
+                <constraint firstItem="95" firstAttribute="top" secondItem="93" secondAttribute="bottom" constant="18" id="sjw-Gc-5iz"/>
+                <constraint firstItem="94" firstAttribute="leading" secondItem="93" secondAttribute="trailing" constant="8" id="tUQ-mK-lbH"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="33" y="1051"/>
         </view>
         <view clearsContextBeforeDrawing="NO" alpha="0.89999997615814209" contentMode="scaleToFill" id="50" userLabel="Enter High Score View">
             <rect key="frame" x="0.0" y="0.0" width="220" height="180"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Enter Name:" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="51">
-                    <rect key="frame" x="62" y="49" width="96" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="High Score!" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="63">
+                    <rect key="frame" x="64" y="20" width="89.5" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="qF4-qO-fLe"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" id="52">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Enter Name:" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="51">
+                    <rect key="frame" x="62" y="49" width="94.5" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="6VV-cv-g8H"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="52">
                     <rect key="frame" x="20" y="78" width="180" height="31"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="31" id="YU9-FG-0UA"/>
+                    </constraints>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="53">
+                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="53">
                     <rect key="frame" x="128" y="123" width="72" height="37"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="37" id="Qna-5T-jEx"/>
+                        <constraint firstAttribute="width" constant="72" id="aMh-eS-UZV"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                     <state key="normal" title="OK">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <state key="disabled" title="OK"/>
@@ -435,12 +641,15 @@
                         <action selector="acceptHighScore:" destination="3" eventType="touchUpInside" id="57"/>
                     </connections>
                 </button>
-                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="54">
-                    <rect key="frame" x="46" y="123" width="74" height="37"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54">
+                    <rect key="frame" x="20" y="123" width="74" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="74" id="ISp-qS-SmM"/>
+                        <constraint firstAttribute="height" constant="37" id="bxO-Sb-9Jf"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                     <state key="normal" title="Cancel">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <state key="disabled" title="Cancel"/>
@@ -452,18 +661,26 @@
                         <action selector="cancelHighScore:" destination="3" eventType="touchUpInside" id="56"/>
                     </connections>
                 </button>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="High Score!" lineBreakMode="tailTruncation" minimumFontSize="10" id="63">
-                    <rect key="frame" x="64" y="20" width="92" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <color key="backgroundColor" red="0.34999999403953552" green="0.34999999403953552" blue="0.34999999403953552" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="52" secondAttribute="trailing" constant="20" id="28u-62-vgH"/>
+                <constraint firstAttribute="trailing" secondItem="63" secondAttribute="trailing" constant="66.5" id="3j4-Zs-jNf"/>
+                <constraint firstAttribute="bottom" secondItem="54" secondAttribute="bottom" constant="20" id="4Wn-If-Vd3"/>
+                <constraint firstItem="52" firstAttribute="leading" secondItem="50" secondAttribute="leading" constant="20" id="Gry-Xe-KyV"/>
+                <constraint firstAttribute="trailing" secondItem="51" secondAttribute="trailing" constant="63.5" id="VcG-K4-Ihb"/>
+                <constraint firstItem="63" firstAttribute="top" secondItem="50" secondAttribute="top" constant="20" id="cua-90-XtC"/>
+                <constraint firstItem="63" firstAttribute="leading" secondItem="50" secondAttribute="leading" constant="64" id="d2L-dd-VNm"/>
+                <constraint firstAttribute="bottom" secondItem="53" secondAttribute="bottom" constant="20" id="dkS-Sg-8ZM"/>
+                <constraint firstItem="51" firstAttribute="top" secondItem="63" secondAttribute="bottom" constant="8" id="fcr-if-iCC"/>
+                <constraint firstItem="51" firstAttribute="leading" secondItem="50" secondAttribute="leading" constant="62" id="ieF-rp-nKW"/>
+                <constraint firstItem="53" firstAttribute="trailing" secondItem="52" secondAttribute="trailing" id="mDm-sQ-ppw"/>
+                <constraint firstItem="54" firstAttribute="leading" secondItem="52" secondAttribute="leading" id="nAE-GU-rp3"/>
+                <constraint firstItem="52" firstAttribute="top" secondItem="51" secondAttribute="bottom" constant="8" id="uze-Kk-uqE"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
-            <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-392" y="561"/>
         </view>
         <customObject id="115" userLabel="Game Screen View Controller" customClass="Classic_Gold_RunnerViewController"/>
         <viewController id="117" userLabel="Instructions Controller">
@@ -471,213 +688,275 @@
             <connections>
                 <outlet property="view" destination="118" id="148"/>
             </connections>
+            <point key="canvasLocation" x="34" y="-303"/>
         </viewController>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="118" userLabel="Instructions">
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Object:" lineBreakMode="tailTruncation" minimumFontSize="8" id="119">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Object:" lineBreakMode="tailTruncation" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="119">
                     <rect key="frame" x="20" y="29" width="50" height="16"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="Gqw-7O-E7L"/>
+                        <constraint firstAttribute="height" constant="16" id="h84-Tx-vGW"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="To collect all of the gold bricks on the level and exit" lineBreakMode="tailTruncation" minimumFontSize="12" id="120">
-                    <rect key="frame" x="20" y="47" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="To collect all of the gold bricks on the level and exit" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="120">
+                    <rect key="frame" x="20" y="47" width="280" height="13.5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="13.5" id="vLr-Ox-BDr"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="up the escape ladder to the top of the screen. Avoid" lineBreakMode="tailTruncation" minimumFontSize="12" id="121">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="up the escape ladder to the top of the screen. Avoid" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="121">
                     <rect key="frame" x="20" y="62" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="pSn-AY-sXx"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="being captured by the guards that are chasing you," lineBreakMode="tailTruncation" minimumFontSize="12" id="122">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="being captured by the guards that are chasing you," lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="122">
                     <rect key="frame" x="20" y="77" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="5Ty-Ex-XZF"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="but trap them in the holes you dig to retrieve the" lineBreakMode="tailTruncation" minimumFontSize="12" id="123">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="but trap them in the holes you dig to retrieve the" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="123">
                     <rect key="frame" x="20" y="92" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="Wc0-e0-3Yc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="gold that they can hold to keep away from you. You" lineBreakMode="tailTruncation" minimumFontSize="12" id="124">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="gold that they can hold to keep away from you. You" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="124">
                     <rect key="frame" x="20" y="107" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="vLX-do-8OF"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="can also dig holes to escape from the guards." lineBreakMode="tailTruncation" minimumFontSize="12" id="125">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="can also dig holes to escape from the guards." lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="125">
                     <rect key="frame" x="20" y="122" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="T29-cG-MhH"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Controls:" lineBreakMode="tailTruncation" minimumFontSize="8" id="127">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Controls:" lineBreakMode="tailTruncation" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="127">
                     <rect key="frame" x="20" y="147" width="69" height="16"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="I64-N7-5ud"/>
+                        <constraint firstAttribute="width" constant="69" id="utz-K9-W6k"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="When playing the game with a vertical orientation," lineBreakMode="tailTruncation" minimumFontSize="12" id="128">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="When playing the game with a vertical orientation," lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="128">
                     <rect key="frame" x="20" y="165" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="Ta4-cs-w8e"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="you can choose from 3 button configurations to find" lineBreakMode="tailTruncation" minimumFontSize="12" id="129">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="you can choose from 3 button configurations to find" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="129">
                     <rect key="frame" x="20" y="180" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="Q6S-B0-YVw"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="the one that best suits your finger size and dexterity." lineBreakMode="tailTruncation" minimumFontSize="12" id="130">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="the one that best suits your finger size and dexterity." lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="130">
                     <rect key="frame" x="20" y="195" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="XRJ-US-yl5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="There are also 3 different control styles to choose" lineBreakMode="tailTruncation" minimumFontSize="12" id="131">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="There are also 3 different control styles to choose" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="131">
                     <rect key="frame" x="20" y="210" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="k3p-ec-LVY"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="from. Precise control moves and stops the player as" lineBreakMode="tailTruncation" minimumFontSize="12" id="132">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="from. Precise control moves and stops the player as" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="132">
                     <rect key="frame" x="20" y="225" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="3mh-Yk-OSy"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="you press and release the arrow buttons. Stick" lineBreakMode="tailTruncation" minimumFontSize="12" id="133">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="you press and release the arrow buttons. Stick" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="133">
                     <rect key="frame" x="20" y="240" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="Nh5-Ld-zlN"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="control makes the arrow buttons &quot;sticky&quot;. Once you" lineBreakMode="tailTruncation" minimumFontSize="12" id="134">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="control makes the arrow buttons &quot;sticky&quot;. Once you" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="134">
                     <rect key="frame" x="20" y="255" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="3KB-zP-llP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="start the player in a direction he continues in that" lineBreakMode="tailTruncation" minimumFontSize="12" id="135">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="start the player in a direction he continues in that" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="135">
                     <rect key="frame" x="20" y="270" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="2Np-eH-058"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="direction until you start him in a new direction. You" lineBreakMode="tailTruncation" minimumFontSize="12" id="136">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="direction until you start him in a new direction. You" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="136">
                     <rect key="frame" x="20" y="285" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="Vui-FY-MrC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="can also stop the player by pressing a direction that" lineBreakMode="tailTruncation" minimumFontSize="12" id="138">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="can also stop the player by pressing a direction that" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="138">
                     <rect key="frame" x="20" y="300" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="Nxh-0O-Prt"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="the player can't move in. Flick control lets you flick" lineBreakMode="tailTruncation" minimumFontSize="12" id="139">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="the player can't move in. Flick control lets you flick" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="139">
                     <rect key="frame" x="20" y="315" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="niX-zD-t97"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="the screen in the direction you want to move the" lineBreakMode="tailTruncation" minimumFontSize="12" id="140">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="the screen in the direction you want to move the" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="140">
                     <rect key="frame" x="20" y="330" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="Jb6-dZ-6sA"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="player. Single-tap to stop moving. Double-tap to dig." lineBreakMode="tailTruncation" minimumFontSize="12" id="144">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="player. Single-tap to stop moving. Double-tap to dig." lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="144">
                     <rect key="frame" x="20" y="345" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="ZeI-kh-ogD"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="You can flick anywhere on the screen except for the" lineBreakMode="tailTruncation" minimumFontSize="12" id="152">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="You can flick anywhere on the screen except for the" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="152">
                     <rect key="frame" x="20" y="360" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="UVZ-Su-4zO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Pause and Stop buttons, which are still active. If the" lineBreakMode="tailTruncation" minimumFontSize="12" id="145">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Pause and Stop buttons, which are still active. If the" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="145">
                     <rect key="frame" x="20" y="375" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="beu-mv-iu3"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="game screen in the vertical orientation is too small" lineBreakMode="tailTruncation" minimumFontSize="12" id="141">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="game screen in the vertical orientation is too small" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="141">
                     <rect key="frame" x="20" y="390" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="IHm-c3-Hif"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="for you, you can switch to the horizontal orientation." lineBreakMode="tailTruncation" minimumFontSize="12" id="142">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="for you, you can switch to the horizontal orientation." lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="142">
                     <rect key="frame" x="20" y="405" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="dkt-YH-oDD"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="This orientation has a larger game" lineBreakMode="tailTruncation" minimumFontSize="12" id="143">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="This orientation has a larger game" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="143">
                     <rect key="frame" x="20" y="420" width="189" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="onj-SA-1qB"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="screen but only lets you use flick" lineBreakMode="tailTruncation" minimumFontSize="12" id="150">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="screen but only lets you use flick" lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="150">
                     <rect key="frame" x="20" y="435" width="181" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="duq-CY-gu1"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="control." lineBreakMode="tailTruncation" minimumFontSize="12" id="153">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="control." lineBreakMode="tailTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="153">
                     <rect key="frame" x="20" y="450" width="181" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="ljr-Ye-Hbe"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="137">
+                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="137">
                     <rect key="frame" x="228" y="432" width="72" height="37"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="72" id="HMr-zO-jkH"/>
+                        <constraint firstAttribute="height" constant="37" id="sXk-fJ-Eb0"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                     <state key="normal" title="Close">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <state key="disabled" title="Close"/>
@@ -691,8 +970,95 @@
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="144" firstAttribute="top" secondItem="140" secondAttribute="bottom" constant="-2" id="1Gr-8v-aO7"/>
+                <constraint firstAttribute="trailing" secondItem="144" secondAttribute="trailing" constant="20" id="1Q6-HE-f2f"/>
+                <constraint firstAttribute="trailing" secondItem="124" secondAttribute="trailing" constant="20" id="1sR-fu-bi4"/>
+                <constraint firstItem="153" firstAttribute="leading" secondItem="118" secondAttribute="leading" constant="20" id="4vh-Vj-fmf"/>
+                <constraint firstAttribute="trailing" secondItem="138" secondAttribute="trailing" constant="20" id="5c4-W4-Res"/>
+                <constraint firstItem="124" firstAttribute="top" secondItem="123" secondAttribute="bottom" constant="-2" id="5ek-IC-Ao3"/>
+                <constraint firstItem="139" firstAttribute="leading" secondItem="118" secondAttribute="leading" constant="20" id="5uG-g6-HjK"/>
+                <constraint firstItem="123" firstAttribute="leading" secondItem="118" secondAttribute="leading" constant="20" id="64G-Nv-cuw"/>
+                <constraint firstItem="131" firstAttribute="leading" secondItem="118" secondAttribute="leading" constant="20" id="6H4-rM-vST"/>
+                <constraint firstItem="141" firstAttribute="leading" secondItem="118" secondAttribute="leading" constant="20" id="7Gx-me-J2Y"/>
+                <constraint firstItem="122" firstAttribute="top" secondItem="121" secondAttribute="bottom" constant="-2" id="9CL-RA-bFX"/>
+                <constraint firstItem="135" firstAttribute="leading" secondItem="118" secondAttribute="leading" constant="20" id="9V9-Ii-LOG"/>
+                <constraint firstAttribute="trailing" secondItem="141" secondAttribute="trailing" constant="20" id="9VD-mI-377"/>
+                <constraint firstItem="121" firstAttribute="top" secondItem="120" secondAttribute="bottom" constant="1.5" id="9sT-cC-zkf"/>
+                <constraint firstItem="121" firstAttribute="leading" secondItem="118" secondAttribute="leading" constant="20" id="B6W-4T-fkJ"/>
+                <constraint firstItem="145" firstAttribute="leading" secondItem="118" secondAttribute="leading" constant="20" id="BZP-k4-f63"/>
+                <constraint firstItem="140" firstAttribute="top" secondItem="139" secondAttribute="bottom" constant="-2" id="Dkr-dR-2BR"/>
+                <constraint firstAttribute="trailing" secondItem="128" secondAttribute="trailing" constant="20" id="Dq2-mt-2tE"/>
+                <constraint firstItem="119" firstAttribute="leading" secondItem="118" secondAttribute="leading" constant="20" id="E4l-V1-CXV"/>
+                <constraint firstItem="150" firstAttribute="leading" secondItem="118" secondAttribute="leading" constant="20" id="FJ2-GP-yBS"/>
+                <constraint firstItem="125" firstAttribute="leading" secondItem="118" secondAttribute="leading" constant="20" id="Fye-fC-PjQ"/>
+                <constraint firstItem="136" firstAttribute="leading" secondItem="118" secondAttribute="leading" constant="20" id="IAX-bw-XND"/>
+                <constraint firstItem="132" firstAttribute="leading" secondItem="118" secondAttribute="leading" constant="20" id="Jjv-MU-nmK"/>
+                <constraint firstItem="135" firstAttribute="top" secondItem="134" secondAttribute="bottom" constant="-2" id="KVT-5E-8cQ"/>
+                <constraint firstItem="142" firstAttribute="top" secondItem="141" secondAttribute="bottom" constant="-2" id="KlJ-lF-SVq"/>
+                <constraint firstAttribute="trailing" secondItem="129" secondAttribute="trailing" constant="20" id="LCj-Kx-9bO"/>
+                <constraint firstAttribute="trailing" secondItem="121" secondAttribute="trailing" constant="20" id="MRe-Kk-lD3"/>
+                <constraint firstItem="140" firstAttribute="leading" secondItem="118" secondAttribute="leading" constant="20" id="Muj-iD-MxI"/>
+                <constraint firstItem="129" firstAttribute="top" secondItem="128" secondAttribute="bottom" constant="-2" id="NBd-81-DwD"/>
+                <constraint firstAttribute="trailing" secondItem="137" secondAttribute="trailing" constant="20" id="PpK-V2-E6L"/>
+                <constraint firstAttribute="bottom" secondItem="137" secondAttribute="bottom" constant="11" id="Qlr-60-IzT"/>
+                <constraint firstItem="128" firstAttribute="leading" secondItem="118" secondAttribute="leading" constant="20" id="Uti-p2-fa7"/>
+                <constraint firstItem="139" firstAttribute="top" secondItem="138" secondAttribute="bottom" constant="-2" id="VZH-Ns-ZrU"/>
+                <constraint firstAttribute="trailing" secondItem="125" secondAttribute="trailing" constant="20" id="WEj-Dt-zDq"/>
+                <constraint firstItem="129" firstAttribute="leading" secondItem="118" secondAttribute="leading" constant="20" id="XET-Yx-nPH"/>
+                <constraint firstItem="128" firstAttribute="top" secondItem="127" secondAttribute="bottom" constant="2" id="XXF-FQ-opy"/>
+                <constraint firstAttribute="trailing" secondItem="143" secondAttribute="trailing" constant="111" id="XqH-uI-hiu"/>
+                <constraint firstAttribute="trailing" secondItem="145" secondAttribute="trailing" constant="20" id="YOC-cX-JEI"/>
+                <constraint firstItem="127" firstAttribute="top" secondItem="125" secondAttribute="bottom" constant="8" id="Ysm-wP-Xu3"/>
+                <constraint firstItem="152" firstAttribute="leading" secondItem="118" secondAttribute="leading" constant="20" id="ZNj-bd-ogF"/>
+                <constraint firstAttribute="trailing" secondItem="152" secondAttribute="trailing" constant="20" id="ach-9c-96b"/>
+                <constraint firstItem="138" firstAttribute="leading" secondItem="118" secondAttribute="leading" constant="20" id="bLq-iC-uC3"/>
+                <constraint firstItem="142" firstAttribute="leading" secondItem="118" secondAttribute="leading" constant="20" id="bdf-W6-A79"/>
+                <constraint firstItem="132" firstAttribute="top" secondItem="131" secondAttribute="bottom" constant="-2" id="c5j-lI-gp8"/>
+                <constraint firstItem="122" firstAttribute="leading" secondItem="118" secondAttribute="leading" constant="20" id="cCd-Vu-0O6"/>
+                <constraint firstAttribute="trailing" secondItem="123" secondAttribute="trailing" constant="20" id="cDo-n0-bXe"/>
+                <constraint firstAttribute="trailing" secondItem="140" secondAttribute="trailing" constant="20" id="cN7-gK-8An"/>
+                <constraint firstItem="125" firstAttribute="top" secondItem="124" secondAttribute="bottom" constant="-2" id="dcz-IM-rbu"/>
+                <constraint firstItem="120" firstAttribute="leading" secondItem="118" secondAttribute="leading" constant="20" id="dfJ-ZX-Oui"/>
+                <constraint firstItem="137" firstAttribute="leading" secondItem="153" secondAttribute="trailing" constant="27" id="e65-c0-wiK"/>
+                <constraint firstAttribute="trailing" secondItem="133" secondAttribute="trailing" constant="20" id="eJT-0d-SjU"/>
+                <constraint firstItem="153" firstAttribute="top" secondItem="150" secondAttribute="bottom" constant="-2" id="eYQ-Ie-UNg"/>
+                <constraint firstAttribute="trailing" secondItem="139" secondAttribute="trailing" constant="20" id="ffS-9P-Ain"/>
+                <constraint firstItem="143" firstAttribute="leading" secondItem="118" secondAttribute="leading" constant="20" id="fuM-iJ-m4l"/>
+                <constraint firstItem="134" firstAttribute="leading" secondItem="118" secondAttribute="leading" constant="20" id="gNA-nt-0Up"/>
+                <constraint firstItem="133" firstAttribute="top" secondItem="132" secondAttribute="bottom" constant="-2" id="goh-Ud-3AL"/>
+                <constraint firstItem="152" firstAttribute="top" secondItem="144" secondAttribute="bottom" constant="-2" id="h57-0k-Ne1"/>
+                <constraint firstAttribute="trailing" secondItem="142" secondAttribute="trailing" constant="20" id="hGT-PY-Gn6"/>
+                <constraint firstAttribute="trailing" secondItem="131" secondAttribute="trailing" constant="20" id="hfN-Cf-ljh"/>
+                <constraint firstAttribute="trailing" secondItem="130" secondAttribute="trailing" constant="20" id="j91-RW-WRb"/>
+                <constraint firstItem="138" firstAttribute="top" secondItem="136" secondAttribute="bottom" constant="-2" id="mYJ-3m-ftD"/>
+                <constraint firstAttribute="trailing" secondItem="135" secondAttribute="trailing" constant="20" id="maG-7B-CPi"/>
+                <constraint firstItem="127" firstAttribute="leading" secondItem="118" secondAttribute="leading" constant="20" id="msT-ZZ-rkS"/>
+                <constraint firstAttribute="trailing" secondItem="136" secondAttribute="trailing" constant="20" id="nTQ-vJ-W1c"/>
+                <constraint firstItem="120" firstAttribute="top" secondItem="119" secondAttribute="bottom" constant="2" id="ovk-H7-uLR"/>
+                <constraint firstItem="141" firstAttribute="top" secondItem="145" secondAttribute="bottom" constant="-2" id="pFM-s2-Y8m"/>
+                <constraint firstItem="143" firstAttribute="top" secondItem="142" secondAttribute="bottom" constant="-2" id="pNF-Qn-z2B"/>
+                <constraint firstAttribute="trailing" secondItem="134" secondAttribute="trailing" constant="20" id="pSu-rP-ZWI"/>
+                <constraint firstAttribute="trailing" secondItem="120" secondAttribute="trailing" constant="20" id="rXi-NC-rj8"/>
+                <constraint firstAttribute="trailing" secondItem="150" secondAttribute="trailing" constant="119" id="tYT-ob-Vup"/>
+                <constraint firstItem="134" firstAttribute="top" secondItem="133" secondAttribute="bottom" constant="-2" id="tuF-NQ-0Ry"/>
+                <constraint firstItem="145" firstAttribute="top" secondItem="152" secondAttribute="bottom" constant="-2" id="vTL-92-Rcr"/>
+                <constraint firstItem="130" firstAttribute="leading" secondItem="118" secondAttribute="leading" constant="20" id="w7E-CL-1w2"/>
+                <constraint firstItem="150" firstAttribute="top" secondItem="143" secondAttribute="bottom" constant="-2" id="wNX-vf-wLH"/>
+                <constraint firstItem="130" firstAttribute="top" secondItem="129" secondAttribute="bottom" constant="-2" id="wSJ-wz-8qg"/>
+                <constraint firstAttribute="trailing" secondItem="132" secondAttribute="trailing" constant="20" id="wp4-je-1LP"/>
+                <constraint firstItem="119" firstAttribute="top" secondItem="118" secondAttribute="top" constant="29" id="wpU-ac-ZBS"/>
+                <constraint firstItem="144" firstAttribute="leading" secondItem="118" secondAttribute="leading" constant="20" id="xAJ-BF-hZo"/>
+                <constraint firstItem="136" firstAttribute="top" secondItem="135" secondAttribute="bottom" constant="-2" id="xGb-Ne-lrc"/>
+                <constraint firstItem="131" firstAttribute="top" secondItem="130" secondAttribute="bottom" constant="-2" id="xdy-uK-Pyu"/>
+                <constraint firstAttribute="trailing" secondItem="122" secondAttribute="trailing" constant="20" id="y2E-2p-RE8"/>
+                <constraint firstItem="133" firstAttribute="leading" secondItem="118" secondAttribute="leading" constant="20" id="yFn-U6-yP1"/>
+                <constraint firstItem="123" firstAttribute="top" secondItem="122" secondAttribute="bottom" constant="-2" id="yf0-Lh-17i"/>
+                <constraint firstItem="124" firstAttribute="leading" secondItem="118" secondAttribute="leading" constant="20" id="zqG-1c-vqw"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-392" y="1051"/>
         </view>
     </objects>
     <resources>

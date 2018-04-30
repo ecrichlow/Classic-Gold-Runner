@@ -59,33 +59,63 @@
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
 
+	Classic_Gold_RunnerAppDelegate *appDelegate = (Classic_Gold_RunnerAppDelegate *)[[UIApplication sharedApplication] delegate];
 	UITouch *touch = [touches anyObject];
 	CGPoint touchEndPosition = [touch locationInView:self];
  
 	// Got a valid flick on one axis or the other
-	if (fabsf(touchStartPosition.x - touchEndPosition.x) > TOUCH_DRAG_OFFSET || fabsf(touchStartPosition.y - touchEndPosition.y) > TOUCH_DRAG_OFFSET)
+	if (fabsf(touchStartPosition.x - touchEndPosition.x) > TOUCH_DRAG_OFFSET_PHONE_X_AXIS || fabsf(touchStartPosition.y - touchEndPosition.y) > TOUCH_DRAG_OFFSET_PHONE_Y_AXIS)
 		{
-		// Y Axis drags take precedence
-		if (fabsf(touchStartPosition.y - touchEndPosition.y) > TOUCH_DRAG_OFFSET && fabsf(touchStartPosition.y - touchEndPosition.y) > fabsf(touchStartPosition.x - touchEndPosition.x))
+		if ([appDelegate screenOrientation] == SCREEN_ORIENTATION_VERTICAL)
 			{
-			if (touchStartPosition.y > touchEndPosition.y)
+			// Y Axis drags take precedence
+			if (fabsf(touchStartPosition.y - touchEndPosition.y) > TOUCH_DRAG_OFFSET_PHONE_Y_AXIS && fabsf(touchStartPosition.y - touchEndPosition.y) > fabsf(touchStartPosition.x - touchEndPosition.x))
 				{
-				[(Classic_Gold_RunnerAppDelegate *)[[UIApplication sharedApplication] delegate] setController_dir:UP];
+				if (touchStartPosition.y > touchEndPosition.y)
+					{
+					[(Classic_Gold_RunnerAppDelegate *)[[UIApplication sharedApplication] delegate] setController_dir:UP];
+					}
+				else
+					{
+					[(Classic_Gold_RunnerAppDelegate *)[[UIApplication sharedApplication] delegate] setController_dir:DOWN];
+					}
 				}
-			else
+			else if (fabsf(touchStartPosition.x - touchEndPosition.x) > TOUCH_DRAG_OFFSET_PHONE_X_AXIS && fabsf(touchStartPosition.x - touchEndPosition.x) > fabsf(touchStartPosition.y - touchEndPosition.y))
 				{
-				[(Classic_Gold_RunnerAppDelegate *)[[UIApplication sharedApplication] delegate] setController_dir:DOWN];
+				if (touchStartPosition.x > touchEndPosition.x)
+					{
+					[(Classic_Gold_RunnerAppDelegate *)[[UIApplication sharedApplication] delegate] setController_dir:LEFT];
+					}
+				else
+					{
+					[(Classic_Gold_RunnerAppDelegate *)[[UIApplication sharedApplication] delegate] setController_dir:RIGHT];
+					}
 				}
 			}
-		else if (fabsf(touchStartPosition.x - touchEndPosition.x) > TOUCH_DRAG_OFFSET && fabsf(touchStartPosition.x - touchEndPosition.x) > fabsf(touchStartPosition.y - touchEndPosition.y))
+		else
 			{
-			if (touchStartPosition.x > touchEndPosition.x)
+			// Y Axis drags take precedence
+			if (fabsf(touchStartPosition.x - touchEndPosition.x) > TOUCH_DRAG_OFFSET_PHONE_X_AXIS && fabsf(touchStartPosition.x - touchEndPosition.x) > fabsf(touchStartPosition.y - touchEndPosition.y))
 				{
-				[(Classic_Gold_RunnerAppDelegate *)[[UIApplication sharedApplication] delegate] setController_dir:LEFT];
+				if (touchStartPosition.x < touchEndPosition.x)
+					{
+					[(Classic_Gold_RunnerAppDelegate *)[[UIApplication sharedApplication] delegate] setController_dir:DOWN];
+					}
+				else
+					{
+					[(Classic_Gold_RunnerAppDelegate *)[[UIApplication sharedApplication] delegate] setController_dir:UP];
+					}
 				}
-			else
+			else if (fabsf(touchStartPosition.y - touchEndPosition.y) > TOUCH_DRAG_OFFSET_PHONE_Y_AXIS && fabsf(touchStartPosition.y - touchEndPosition.y) > fabsf(touchStartPosition.x - touchEndPosition.x))
 				{
-				[(Classic_Gold_RunnerAppDelegate *)[[UIApplication sharedApplication] delegate] setController_dir:RIGHT];
+				if (touchStartPosition.y > touchEndPosition.y)
+					{
+					[(Classic_Gold_RunnerAppDelegate *)[[UIApplication sharedApplication] delegate] setController_dir:RIGHT];
+					}
+				else
+					{
+					[(Classic_Gold_RunnerAppDelegate *)[[UIApplication sharedApplication] delegate] setController_dir:LEFT];
+					}
 				}
 			}
 		}
